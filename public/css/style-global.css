@@ -1,0 +1,105 @@
+@font-face{ 
+	font-family: 'Mytwentyone';
+	src: url('../fonts/twentyone-webfont.eot');
+	src: url('../fonts/twentyone-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('../fonts/twentyone-webfont.woff') format('woff'),
+	     url('../fonts/twentyone-webfont.woff2') format('woff2'),
+	     url('../fonts/twentyone-webfont.ttf') format('truetype');
+}
+
+/* 
+##############################
+###          BASE          ###
+##############################
+*/
+
+body {
+  background-color: #94bcc6;
+  font-family: "Dejavu Sans";
+  height: 1660px;
+  margin: 0;
+  padding: 0
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+/* 
+##############################
+###       TITLE/LOGO       ###
+##############################
+*/
+
+h1.logo {
+  font-family: Mytwentyone;
+  font-style: italic;
+  font-weight: 200;
+  color: #d43232;
+  margin: 0;
+  text-align: center;
+}
+
+/* 
+##############################
+###          MENU          ###
+##############################
+*/
+
+#nav {
+  height: 100vh;
+  position: fixed;
+  user-select: none;
+  width: 15%;
+}
+
+#nav #menu {
+  background-color: white;
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#nav #menu-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.25em;
+  height: 50%;
+  justify-content: space-between;
+  line-height: 100px;
+}
+
+#nav #menu-content ul {
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+
+#nav #menu-content li {
+  list-style-type: none;
+}
+
+#nav #menu-content a {
+  display: block;
+  height: 100%;
+}
+
+#nav #menu-content a:hover {
+  background-color: #e6e6e6;
+  cursor: pointer;
+}
+
+#nav #menu .menu-separator {
+  margin: 0 auto;
+  width: 80%;
+}
+
+#nav #menu .menu-separator-2 {
+  transform: rotateX(180deg);
+}
