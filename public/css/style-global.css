@@ -54,9 +54,7 @@ h1.logo {
   width: 15%;
 }
 
-#nav #menu {
-  background-color: white;
-
+#menu {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -65,41 +63,40 @@ h1.logo {
   width: 100%;
 }
 
-#nav #menu-content {
+#menu-content {
   align-items: center;
   display: flex;
   flex-direction: column;
   font-size: 1.25em;
-  height: 50%;
   justify-content: space-between;
   line-height: 100px;
 }
 
-#nav #menu-content ul {
+#menu-content ul {
   padding: 0;
   text-align: center;
   width: 100%;
 }
 
-#nav #menu-content li {
+#menu-content li {
   list-style-type: none;
 }
 
-#nav #menu-content a {
+#menu-content a {
   display: block;
   height: 100%;
 }
 
-#nav #menu-content a:hover {
+#menu-content a:hover {
   background-color: #e6e6e6;
   cursor: pointer;
 }
 
-#nav #menu .menu-separator {
+#menu .menu-separator {
   margin: 0 auto;
   width: 80%;
 }
 
-#nav #menu .menu-separator-2 {
+#menu .menu-separator-2 {
   transform: rotateX(180deg);
 }
