@@ -10,5 +10,13 @@ navCheckElt.addEventListener("click", (e) => {
   else {
     navElt.style.transform = "translateX(-100%)";
   }
+  e.stopPropagation();
+})
+
+document.body.addEventListener("click", () => {
+  if (navCheckElt.checked) {
+    navCheckElt.checked = false;
+    navElt.style.transform = "translateX(-100%)";
+  }
 })
 // End
