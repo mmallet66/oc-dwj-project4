@@ -161,3 +161,87 @@ section#content-container.accueil .icon-circle {
   line-height: 2.875rem;
   width: 2.875rem;
 }
+
+/* LOGIN */
+
+section#content-container.login {
+  background-color: #94bcc6;
+  grid-row-start: 3;
+  text-align: center;
+}
+
+section#content-container h2 {
+  font-size: 4rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 400;
+  margin: 0;
+}
+
+section#content-container hr {
+  margin: 0 auto;
+  border: 1px solid white;
+  width: 5vw;
+}
+
+section#content-container form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 5% auto 0 auto;
+}
+
+section#content-container label {
+  align-items: center;
+  display: flex;
+}
+
+section#content-container i {
+  background-color: white;
+  border-radius: 2.875rem;
+  color: #94bcc6;
+  font-size: 1.5rem;
+  height: 2.875rem;
+  line-height: 2.875rem;
+  margin: 0 1vw;
+  width: 2.875rem;
+}
+
+section#content-container input {
+  border: 2px solid white;
+  border-radius: 2.5vh;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 4vh;
+  margin: 2.5vh auto;
+  padding: 0.5vh 1vw;
+  width: 19vw;
+}
+
+section#content-container input::placeholder {
+  color: #94bcc6;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+section#content-container input:focus {
+  border: 2px solid #d43232;
+  outline: unset;
+}
+
+section#content-container input#submit {
+  background-color: white;
+  border: unset;
+  box-shadow: 2px 2px 3px #888888;
+  color: #d43232;
+  font-size: 1.5rem;
+  width: 12vw;
+}
+
+section#content-container input#submit:focus {
+  border: unset;
+}
+
+section#content-container input#submit:active {
+  box-shadow: unset;
+}
