@@ -106,3 +106,13 @@ header h1.logo{
   font-size: 3em;
   text-align: right;
 }
+
+/* 
+##############################
+###         CONTENT        ###
+##############################
+*/
+
+#nav.on ~ section#content {
+  grid-column: 5/20;
+}

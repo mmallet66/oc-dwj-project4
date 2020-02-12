@@ -114,3 +114,32 @@ header {
   grid-row: 1/1;
   padding: 0 2%;
 }
+
+/* 
+##############################
+###         CONTENT        ###
+##############################
+*/
+
+section#content {
+  grid-column: 2/20;
+  grid-row: 2/10;
+  overflow-y: auto;
+
+  background-color: rgba(255,255,255,0.4);
+}
+
+section#content::-webkit-scrollbar-track {
+	border-radius: 10px;
+}
+
+section#content::-webkit-scrollbar
+{
+	width: 0.25em;
+}
+
+section#content::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: rgba(212, 50, 50, 0.8);
+}
