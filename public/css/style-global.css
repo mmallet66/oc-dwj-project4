@@ -121,7 +121,7 @@ header {
 ##############################
 */
 
-section#content {
+section#content-container {
   grid-column: 2/20;
   grid-row: 2/10;
   overflow-y: auto;
@@ -129,16 +129,16 @@ section#content {
   background-color: rgba(255,255,255,0.4);
 }
 
-section#content::-webkit-scrollbar-track {
+section#content-container::-webkit-scrollbar-track {
 	border-radius: 10px;
 }
 
-section#content::-webkit-scrollbar
+section#content-container::-webkit-scrollbar
 {
 	width: 0.25em;
 }
 
-section#content::-webkit-scrollbar-thumb
+section#content-container::-webkit-scrollbar-thumb
 {
 	border-radius: 10px;
 	background-color: rgba(212, 50, 50, 0.8);

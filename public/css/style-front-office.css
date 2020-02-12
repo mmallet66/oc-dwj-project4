@@ -113,6 +113,6 @@ header h1.logo{
 ##############################
 */
 
-#nav.on ~ section#content {
+#nav.on ~ section#content-container {
   grid-column: 5/20;
 }
