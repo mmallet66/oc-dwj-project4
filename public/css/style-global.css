@@ -119,7 +119,7 @@ header {
 }
 
 header h1.logo{
-  font-size: 3em;
+  font-size: 3rem;
 }
 
 header a {
@@ -146,7 +146,7 @@ section#content-container::-webkit-scrollbar-track {
 
 section#content-container::-webkit-scrollbar
 {
-	width: 0.25em;
+	width: 0.25rem;
 }
 
 section#content-container::-webkit-scrollbar-thumb
