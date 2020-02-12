@@ -69,7 +69,6 @@ a {
   align-items: center;
   display: flex;
   flex-direction: column;
-  font-size: 1.25em;
   justify-content: space-between;
   line-height: 100px;
 }
@@ -90,8 +89,12 @@ a {
 }
 
 #menu-content li:hover {
-  background-color: #e6e6e6;
+  background-color: #94bcc6;
+}
+
+#menu-content li:hover a {
   cursor: pointer;
+  background-color: rgba(255,255,255,0.4);
 }
 
 #menu .menu-separator {
@@ -113,6 +116,14 @@ header {
   grid-column: 1/21;
   grid-row: 1/1;
   padding: 0 2%;
+}
+
+header h1.logo{
+  font-size: 3em;
+}
+
+header a {
+  display: block;
 }
 
 /* 

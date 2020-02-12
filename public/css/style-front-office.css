@@ -84,15 +84,20 @@
   visibility: hidden;
 }
 
-#menu-content li {
+#menu-content ul {
   background-color: white;
 }
 
-#menu-content .submenu li:first-child {
+#menu-content .submenu {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#menu-content .submenu li:first-child, #menu-content .submenu li:first-child a {
   border-top-right-radius: 10px;
 }
 
-#menu-content .submenu li:last-child {
+#menu-content .submenu li:last-child, #menu-content .submenu li:last-child a {
   border-bottom-right-radius: 10px;
 }
 
@@ -103,7 +108,6 @@
 */
 
 header h1.logo{
-  font-size: 3em;
   text-align: right;
 }
 

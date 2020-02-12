@@ -1,0 +1,40 @@
+/*
+##############################
+###          BASE          ###
+##############################
+*/
+
+a {
+  color: white;
+}
+
+/* 
+##############################
+###          MENU          ###
+##############################
+*/
+
+#menu-content li:hover a {
+  color: black;
+}
+
+/* 
+##############################
+###         HEADER         ###
+##############################
+*/
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1.logo{
+  text-align: left;
+}
+
+section#content-container {
+  grid-column: 4/21;
+  grid-row-end: 11;
+}
