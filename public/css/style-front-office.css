@@ -18,7 +18,11 @@
   width: 30px;
 }
 
-/* -- NAVIGATOR -- */
+/* 
+##############################
+###          MENU          ###
+##############################
+*/
 
 #nav {
   background-color: white;
@@ -26,7 +30,7 @@
   transition-duration: 0.4s;
 }
 
-h1.logo#menu-title {
+.logo#menu-title {
   color: black;
   font-size: 40px;
   font-weight: bold;
@@ -39,7 +43,7 @@ h1.logo#menu-title {
   font-size: 3vw;
   left: 100%;
   line-height: 5vw;
-  position: absolute;
+  position: relative;
   text-align: center;
 }
 
@@ -61,7 +65,6 @@ h1.logo#menu-title {
 }
 
 #menu {
-  margin: 35% 0;
   height: 80%;
   justify-content: space-between;
 }
@@ -91,4 +94,15 @@ h1.logo#menu-title {
 
 #menu-content .submenu li:last-child {
   border-bottom-right-radius: 10px;
+}
+
+/* 
+##############################
+###         HEADER         ###
+##############################
+*/
+
+header h1.logo{
+  font-size: 3em;
+  text-align: right;
 }
