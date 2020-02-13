@@ -162,6 +162,44 @@ section#content-container.accueil .icon-circle {
   width: 2.875rem;
 }
 
+/* ABOUT */
+
+section#content-container.about {
+  grid-column: 5/17;
+  grid-row: 3/9;
+  text-align: center;
+}
+
+section#content-container.about h2{
+  font-size: 2rem;
+}
+
+section#content-container.about .content-container-separator {
+  transform: rotateX(180deg);
+  width: 30%;
+}
+
+section#content-container.about .description {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 64px auto 0 auto;
+  text-align: left;
+  width: 90%;
+}
+
+section#content-container.about .description .description-text {
+  width: 64%;
+}
+
+section#content-container.about .description .description-text p:last-child {
+  margin-bottom: 0;
+}
+
+#nav.on ~ section#content-container.about {
+  grid-column: 6/19;
+}
+
 /* LOGIN */
 
 section#content-container.login {
