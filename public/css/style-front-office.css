@@ -128,7 +128,7 @@ header h1.logo{
 ##############################
 */
 
-/* ACCUEIL */
+/* ---- ACCUEIL ---- */
 
 section#content-container.accueil {
   background-color: #94bcc6;
@@ -162,7 +162,7 @@ section#content-container.accueil .icon-circle {
   width: 2.875rem;
 }
 
-/* ABOUT */
+/* ---- ABOUT ---- */
 
 section#content-container.about {
   grid-column: 5/17;
@@ -200,7 +200,7 @@ section#content-container.about .description .description-text p:last-child {
   grid-column: 6/19;
 }
 
-/* LOGIN */
+/* ---- LOGIN ---- */
 
 section#content-container.login {
   background-color: #94bcc6;
@@ -284,7 +284,7 @@ section#content-container.login input#submit:active {
   box-shadow: unset;
 }
 
-/* READ */
+/* ---- READ ---- */
 
 section#content-container.read-synopsis > div {
   align-items: center;
