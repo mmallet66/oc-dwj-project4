@@ -208,32 +208,32 @@ section#content-container.login {
   text-align: center;
 }
 
-section#content-container h2 {
+section#content-container.login h2 {
   font-size: 4rem;
   font-family: 'Times New Roman', Times, serif;
   font-weight: 400;
   margin: 0;
 }
 
-section#content-container hr {
+section#content-container.login hr {
   margin: 0 auto;
   border: 1px solid white;
   width: 5vw;
 }
 
-section#content-container form {
+section#content-container.login form {
   align-items: center;
   display: flex;
   flex-direction: column;
   margin: 5% auto 0 auto;
 }
 
-section#content-container label {
+section#content-container.login label {
   align-items: center;
   display: flex;
 }
 
-section#content-container i {
+section#content-container.login i {
   background-color: white;
   border-radius: 2.875rem;
   color: #94bcc6;
@@ -244,7 +244,7 @@ section#content-container i {
   width: 2.875rem;
 }
 
-section#content-container input {
+section#content-container.login input {
   border: 2px solid white;
   border-radius: 2.5vh;
   font-family: 'Times New Roman', Times, serif;
@@ -256,18 +256,18 @@ section#content-container input {
   width: 19vw;
 }
 
-section#content-container input::placeholder {
+section#content-container.login input::placeholder {
   color: #94bcc6;
   font-size: 1rem;
   font-weight: bold;
 }
 
-section#content-container input:focus {
+section#content-container.login input:focus {
   border: 2px solid #d43232;
   outline: unset;
 }
 
-section#content-container input#submit {
+section#content-container.login input#submit {
   background-color: white;
   border: unset;
   box-shadow: 2px 2px 3px #888888;
@@ -276,10 +276,10 @@ section#content-container input#submit {
   width: 12vw;
 }
 
-section#content-container input#submit:focus {
+section#content-container.login input#submit:focus {
   border: unset;
 }
 
-section#content-container input#submit:active {
+section#content-container.login input#submit:active {
   box-shadow: unset;
 }
