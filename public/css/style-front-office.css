@@ -337,3 +337,8 @@ section#content-container.read-synopsis form input {
 section#content-container.read-synopsis form input:active {
   box-shadow: unset;
 }
+
+section#content-container.read-chapter > div {
+  margin: 0 auto;
+  width: 90%;
+}
