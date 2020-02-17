@@ -149,7 +149,7 @@ section#content-container.administration #content table th {
   min-width: 5vw;
 }
 
-section#content-container.administration #content table th, td {
+section#content-container.administration #content table th, section#content-container.administration #content table td {
   border-bottom: 1px solid rgba(255,255,255,0.4);
   padding: 5px;
 }
@@ -202,4 +202,42 @@ section#content-container.edition #content form .tox.tox-tinymce {
 section#content-container.edition #content form input#submit {
   margin: 0 auto;
   width: 10vw;
+}
+
+/* MODERATION */
+
+section#content-container.moderation #content table {
+  border-collapse: collapse;
+  text-align: left;
+  width: 100%;
+}
+
+section#content-container.moderation #content table th, section#content-container.moderation #content table td {
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+  padding: 5px;
+}
+
+section#content-container.moderation #content table th:first-child {
+  border-top-left-radius: 10px;
+}
+
+section#content-container.moderation #content table th:last-child {
+  border-top-right-radius: 10px;
+}
+
+section#content-container.moderation #content table thead {
+  background-color: #94bcc6;
+}
+
+section#content-container.moderation #content table tbody tr {
+  background-color: rgba(148, 188, 198, 0.4);
+}
+
+section#content-container.moderation #content table tbody tr:hover {
+  background-color: rgb(148, 188, 198);
+}
+
+section#content-container.moderation #content table a {
+  color: red;
+  text-decoration: underline;
 }
