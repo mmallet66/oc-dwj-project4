@@ -19,6 +19,70 @@ a {
   color: white;
 }
 
+table {
+  border-collapse: collapse;
+  text-align: left;
+}
+
+table td:last-child {
+  text-align: center;
+}
+
+table td:last-child a {
+  color: unset;
+  margin: 0 1.5%;
+  width: 30%;
+}
+
+table td:last-child i {
+  font-size: 1.2rem;
+}
+
+table td:last-child i:hover {
+  transform: scale(1.5);
+}
+
+table td:last-child i.edit:hover {
+  color: blue;
+}
+
+table td:last-child i.trash:hover {
+  color: red;
+}
+
+table td:last-child i.view:hover {
+  color: orange;
+}
+
+th {
+  min-width: 5vw;
+}
+
+th, td {
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+  padding: 5px;
+}
+
+thead {
+  background-color: #94bcc6;
+}
+
+th:first-child {
+  border-top-left-radius: 10px;
+}
+
+th:last-child {
+  border-top-right-radius: 10px;
+}
+
+tbody tr {
+  background-color: rgba(148, 188, 198, 0.4);
+}
+
+tbody tr:hover {
+  background-color: rgb(148, 188, 198);
+}
+
 /* 
 ##############################
 ###          MENU          ###
@@ -56,8 +120,18 @@ header a:hover {
 */
 
 section#content-container {
+  background-color: rgb(255,255,255);
   grid-column: 4/21;
   grid-row-end: 11;
+}
+
+section#content-container h2 {
+  text-align: center;
+}
+
+section#content-container #content {
+  margin: auto;
+  width: 95%;
 }
 
 /* 
@@ -90,4 +164,20 @@ section#content-container.accueil #content > div {
 section#content-container.accueil #content > div i {
   animation: arrow-left-right 1s infinite linear;
   font-size: 2.4rem;
+}
+
+/* ---- ADMINISTRATION ---- */
+
+section#content-container.administration #content table tr:last-child {
+  background-color: unset;
+}
+
+section#content-container.administration #content table tr:last-child td {
+  text-align: right;
+}
+
+section#content-container.administration #content a {
+  color: unset;
+  margin: 0;
+  text-decoration: underline;
 }
