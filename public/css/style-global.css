@@ -1,0 +1,156 @@
+@font-face{ 
+	font-family: 'Mytwentyone';
+	src: url('../fonts/twentyone-webfont.eot');
+	src: url('../fonts/twentyone-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('../fonts/twentyone-webfont.woff') format('woff'),
+	     url('../fonts/twentyone-webfont.woff2') format('woff2'),
+	     url('../fonts/twentyone-webfont.ttf') format('truetype');
+}
+
+/* 
+##############################
+###          BASE          ###
+##############################
+*/
+
+body {
+  background-color: #94bcc6;
+  display: grid;
+  font-family: "Dejavu Sans";
+  grid-template-columns: repeat(20, 5vw);
+  grid-template-rows: repeat(10, 10vh);
+  margin: 0;
+  padding: 0;
+
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+/* 
+##############################
+###       TITLE/LOGO       ###
+##############################
+*/
+
+.logo {
+  font-family: Mytwentyone;
+  font-style: italic;
+  font-weight: 200;
+  color: #d43232;
+  margin: 0;
+  text-align: center;
+}
+
+/* 
+##############################
+###          MENU          ###
+##############################
+*/
+
+#nav {
+  grid-column: 1/4;
+  grid-row: 1/11;
+  user-select: none;
+}
+
+#menu {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#menu-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  line-height: 100px;
+}
+
+#menu-content ul {
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+
+#menu-content li {
+  list-style-type: none;
+}
+
+#menu-content a {
+  display: block;
+  height: 100%;
+}
+
+#menu-content li:hover {
+  background-color: #94bcc6;
+}
+
+#menu-content li:hover a {
+  cursor: pointer;
+  background-color: rgba(255,255,255,0.4);
+}
+
+#menu .menu-separator {
+  margin: 0 auto;
+  width: 80%;
+}
+
+#menu .menu-separator-2 {
+  transform: rotateX(180deg);
+}
+
+/* 
+##############################
+###         HEADER         ###
+##############################
+*/
+
+header {
+  grid-column: 1/21;
+  grid-row: 1/1;
+  padding: 0 2%;
+}
+
+header h1.logo{
+  font-size: 3rem;
+}
+
+header a {
+  display: block;
+}
+
+/* 
+##############################
+###         CONTENT        ###
+##############################
+*/
+
+section#content-container {
+  grid-column: 2/20;
+  grid-row: 2/10;
+  overflow-y: auto;
+
+  background-color: rgba(255,255,255,0.4);
+}
+
+section#content-container::-webkit-scrollbar-track {
+	border-radius: 10px;
+}
+
+section#content-container::-webkit-scrollbar
+{
+	width: 0.25rem;
+}
+
+section#content-container::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: rgba(212, 50, 50, 0.8);
+}

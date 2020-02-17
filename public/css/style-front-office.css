@@ -1,0 +1,445 @@
+/* 
+##############################
+###          BASE          ###
+##############################
+*/
+
+.icons-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.icon-circle {
+  border: 3px solid black;
+  border-radius: 50%;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  width: 30px;
+}
+
+/* 
+##############################
+###          MENU          ###
+##############################
+*/
+
+#nav {
+  background-color: white;
+  transform: translateX(-100%);
+  transition-duration: 0.4s;
+}
+
+.logo#menu-title {
+  color: black;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+#nav-button {
+  background-color: white;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-size: 3vw;
+  left: 100%;
+  line-height: 5vw;
+  position: relative;
+  text-align: center;
+}
+
+#nav-button, #nav-check {
+  height: 5vw;
+  width: 5vw;
+}
+
+#nav-check {
+  margin: 0;
+  opacity: 0;
+  position: relative;
+  top: -100%;
+}
+
+.menu-icons-container {
+  margin-top: 10%;
+  width: 80%;
+}
+
+#menu {
+  height: 80%;
+  justify-content: space-between;
+}
+
+#menu-content .menu-read {
+  position: relative;
+}
+
+#menu-content .menu-read:hover .submenu {
+  visibility: visible;
+}
+
+#menu-content .menu-read .submenu {
+  position: absolute;
+  left: 100%;
+  top: -200%;
+  visibility: hidden;
+}
+
+#menu-content ul {
+  background-color: white;
+}
+
+#menu-content .submenu {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#menu-content .submenu li:first-child, #menu-content .submenu li:first-child a {
+  border-top-right-radius: 10px;
+}
+
+#menu-content .submenu li:last-child, #menu-content .submenu li:last-child a {
+  border-bottom-right-radius: 10px;
+}
+
+/* 
+##############################
+###         HEADER         ###
+##############################
+*/
+
+header h1.logo{
+  text-align: right;
+}
+
+/* 
+##############################
+###         CONTENT        ###
+##############################
+*/
+
+#nav.on ~ section#content-container {
+  grid-column: 5/20;
+}
+
+
+/* 
+##############################
+###       PAGE STYLE       ###
+##############################
+*/
+
+/* ---- ACCUEIL ---- */
+
+section#content-container.accueil {
+  background-color: #94bcc6;
+  grid-column: 1/21;
+  grid-row: 1/11;
+  text-align: center;
+}
+
+section#content-container.accueil .logo {
+  font-size: 10rem;
+}
+
+section#content-container.accueil img:hover {
+  box-shadow: 2px 2px 4px black;
+  cursor: pointer;
+  transform: scale(1.01);
+}
+
+section#content-container.accueil .icons-container {
+  margin: 3% auto 0 auto;
+  width: 20%;
+}
+
+section#content-container.accueil .icon-circle {
+  border-color: white;
+  border-width: 4px;
+  color: white;
+  font-size: 2rem;
+  height: 2.875rem;
+  line-height: 2.875rem;
+  width: 2.875rem;
+}
+
+/* ---- ABOUT ---- */
+
+section#content-container.about {
+  grid-column: 5/17;
+  grid-row: 3/9;
+  text-align: center;
+}
+
+section#content-container.about h2{
+  font-size: 2rem;
+}
+
+section#content-container.about .content-container-separator {
+  transform: rotateX(180deg);
+  width: 30%;
+}
+
+section#content-container.about .description {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 64px auto 0 auto;
+  text-align: left;
+  width: 90%;
+}
+
+section#content-container.about .description .description-text {
+  width: 64%;
+}
+
+section#content-container.about .description .description-text p:last-child {
+  margin-bottom: 0;
+}
+
+#nav.on ~ section#content-container.about {
+  grid-column: 6/19;
+}
+
+/* ---- LOGIN ---- */
+
+section#content-container.login {
+  background-color: #94bcc6;
+  grid-row-start: 3;
+  text-align: center;
+}
+
+section#content-container.login h2 {
+  font-size: 4rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 400;
+  margin: 0;
+}
+
+section#content-container.login hr {
+  margin: 0 auto;
+  border: 1px solid white;
+  width: 5vw;
+}
+
+section#content-container.login form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 5% auto 0 auto;
+}
+
+section#content-container.login label {
+  align-items: center;
+  display: flex;
+}
+
+section#content-container.login i {
+  background-color: white;
+  border-radius: 2.875rem;
+  color: #94bcc6;
+  font-size: 1.5rem;
+  height: 2.875rem;
+  line-height: 2.875rem;
+  margin: 0 1vw;
+  width: 2.875rem;
+}
+
+section#content-container.login input {
+  border: 2px solid white;
+  border-radius: 2.5vh;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 4vh;
+  margin: 2.5vh auto;
+  padding: 0.5vh 1vw;
+  width: 19vw;
+}
+
+section#content-container.login input::placeholder {
+  color: #94bcc6;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+section#content-container.login input:focus {
+  border: 2px solid #d43232;
+  outline: unset;
+}
+
+section#content-container.login input#submit {
+  background-color: white;
+  border: unset;
+  box-shadow: 2px 2px 3px #888888;
+  color: #d43232;
+  font-size: 1.5rem;
+  width: 12vw;
+}
+
+section#content-container.login input#submit:focus {
+  border: unset;
+}
+
+section#content-container.login input#submit:active {
+  box-shadow: unset;
+}
+
+/* ---- READ ---- */
+
+section#content-container.read-synopsis > div {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 80%;
+}
+
+section#content-container.read-synopsis > div > article {
+  margin: 0 auto;
+  text-align: justify;
+  width: 60%;
+}
+
+section#content-container.read-synopsis h2 {
+  margin: 0;
+  text-align: center;
+}
+
+section#content-container.read-synopsis form {
+  text-align: center;
+}
+
+section#content-container.read-synopsis form select, section#content-container.read-synopsis form input {
+  background-color: white;
+  border: 2px solid white;
+  border-radius: 2.5vh;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 4vh;
+  margin: 2.5vh auto;
+  padding: 0.5vh 1vw;
+  width: 10vw;
+}
+
+section#content-container.read-synopsis form select:focus {
+  border: 2px solid #d43232;
+  outline: unset;
+}
+
+section#content-container.read-synopsis form input {
+  border: unset;
+  box-shadow: 2px 2px 3px #888888;
+  outline: unset;
+}
+
+section#content-container.read-synopsis form input:active {
+  box-shadow: unset;
+}
+
+section#content-container.read-chapter > div {
+  margin: 0 auto;
+  width: 90%;
+}
+
+section#content-container.read-chapter #chapter-content {
+  margin-bottom: 5vh;
+}
+
+section#content-container.read-chapter #comments-container #head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section#content-container.read-chapter #comments-container #head hr {
+  border-style: dashed;
+  border-width: 1px;
+  margin: 0;
+  width: 43%;
+}
+
+section#content-container.read-chapter #comments-container #head p {
+  font-size: 1.2rem;
+  border: 1px solid black;
+}
+
+section#content-container.read-chapter #comments-container #comments {
+  padding: 0;
+}
+
+section#content-container.read-chapter #comments-container #comments .comment {
+  border-bottom: 1px solid #94bcc6;
+  list-style-type: none;
+}
+
+section#content-container.read-chapter #comments-container #comments .comment-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+section#content-container.read-chapter #comments-container #comments .comment-header a {
+  color: #d43232;
+}
+
+section#content-container.read-chapter #comments-container #comments .comment-content {
+  text-align: justify;
+}
+
+#comment-form-container {
+  min-height: 2vw;
+  position: relative;
+}
+
+#check {
+  border: 0.5px solid red;
+  cursor: pointer;
+  height: 2vw;
+  margin: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+#comment-form-container > p {
+  display: flex;
+  justify-content: space-between;
+  line-height: 2vw;
+  margin: 0 auto;
+  width: 40%;
+}
+
+#comment-form-container > p i {
+  font-size: 2rem;
+}
+
+#check {
+  opacity: 0;
+}
+
+#comment-form-container hr {
+  border: 0.5px solid black;
+  position: absolute;
+  margin: 0;
+  width: 100%;
+}
+
+#comment-form-container hr:last-child {
+  bottom: 0;
+}
+
+section#content-container.read-chapter #comment-form {
+  display: none;
+}
+
+section#content-container.read-chapter #comment-form input {
+  margin: 1vw 0;
+  width: 20%;
+}
+
+#comment-form-container #check:checked ~ form {
+  display: flex;
+  flex-direction: column;
+}
