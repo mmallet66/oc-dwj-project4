@@ -181,3 +181,25 @@ section#content-container.administration #content a {
   margin: 0;
   text-decoration: underline;
 }
+
+/* ---- EDITION ---- */
+
+.tox {
+  white-space: nowrap!important;
+}
+
+section#content-container.edition #content form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+section#content-container.edition #content form .tox.tox-tinymce {
+  margin: 2vw auto;
+  width: 100%;
+}
+
+section#content-container.edition #content form input#submit {
+  margin: 0 auto;
+  width: 10vw;
+}
