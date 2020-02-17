@@ -19,70 +19,6 @@ a {
   color: white;
 }
 
-table {
-  border-collapse: collapse;
-  text-align: left;
-}
-
-table td:last-child {
-  text-align: center;
-}
-
-table td:last-child a {
-  color: unset;
-  margin: 0 1.5%;
-  width: 30%;
-}
-
-table td:last-child i {
-  font-size: 1.2rem;
-}
-
-table td:last-child i:hover {
-  transform: scale(1.5);
-}
-
-table td:last-child i.edit:hover {
-  color: blue;
-}
-
-table td:last-child i.trash:hover {
-  color: red;
-}
-
-table td:last-child i.view:hover {
-  color: orange;
-}
-
-th {
-  min-width: 5vw;
-}
-
-th, td {
-  border-bottom: 1px solid rgba(255,255,255,0.4);
-  padding: 5px;
-}
-
-thead {
-  background-color: #94bcc6;
-}
-
-th:first-child {
-  border-top-left-radius: 10px;
-}
-
-th:last-child {
-  border-top-right-radius: 10px;
-}
-
-tbody tr {
-  background-color: rgba(148, 188, 198, 0.4);
-}
-
-tbody tr:hover {
-  background-color: rgb(148, 188, 198);
-}
-
 /* 
 ##############################
 ###          MENU          ###
@@ -168,18 +104,82 @@ section#content-container.accueil #content > div i {
 
 /* ---- ADMINISTRATION ---- */
 
-section#content-container.administration #content table tr:last-child {
-  background-color: unset;
-}
-
-section#content-container.administration #content table tr:last-child td {
-  text-align: right;
-}
-
 section#content-container.administration #content a {
   color: unset;
   margin: 0;
   text-decoration: underline;
+}
+
+section#content-container.administration #content table {
+  border-collapse: collapse;
+  text-align: left;
+}
+
+section#content-container.administration #content table td:last-child {
+  text-align: center;
+}
+
+section#content-container.administration #content table td:last-child a {
+  color: unset;
+  margin: 0 1.5%;
+  width: 30%;
+}
+
+section#content-container.administration #content table td:last-child i {
+  font-size: 1.2rem;
+}
+
+section#content-container.administration #content table td:last-child i:hover {
+  transform: scale(1.5);
+}
+
+section#content-container.administration #content table td:last-child i.edit:hover {
+  color: blue;
+}
+
+section#content-container.administration #content table td:last-child i.trash:hover {
+  color: red;
+}
+
+section#content-container.administration #content table td:last-child i.view:hover {
+  color: orange;
+}
+
+section#content-container.administration #content table th {
+  min-width: 5vw;
+}
+
+section#content-container.administration #content table th, td {
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+  padding: 5px;
+}
+
+section#content-container.administration #content table thead {
+  background-color: #94bcc6;
+}
+
+section#content-container.administration #content table th:first-child {
+  border-top-left-radius: 10px;
+}
+
+section#content-container.administration #content table th:last-child {
+  border-top-right-radius: 10px;
+}
+
+section#content-container.administration #content table tbody tr {
+  background-color: rgba(148, 188, 198, 0.4);
+}
+
+section#content-container.administration #content table tbody tr:hover {
+  background-color: rgb(148, 188, 198);
+}
+
+section#content-container.administration #content table tbody tr:last-child {
+  background-color: unset;
+}
+
+section#content-container.administration #content table tbody tr:last-child td {
+  text-align: right;
 }
 
 /* ---- EDITION ---- */
