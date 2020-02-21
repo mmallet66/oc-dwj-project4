@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
-  <link rel="stylesheet" href="../../public/css/style-global.css">
-  <link rel="stylesheet" href="../../public/css/style-front-office.css">
-  <title>Jean Forteroche</title>
+  <link rel="stylesheet" href="public/css/style-global.css">
+  <link rel="stylesheet" href="public/css/style-front-office.css">
+  <title><?= $title;?> - Jean Forteroche</title>
 </head>
 
 <body class="front-office">
@@ -24,13 +24,13 @@
       <h2 id="menu-title" class="logo">Jean Forteroche</h2>
       <div id="menu-content">
 
-        <img class="menu-separator menu-separator-1" src="../../public/img/trenner3.svg" alt="separator">
+        <img class="menu-separator menu-separator-1" src="public/img/trenner3.svg" alt="separator">
 
         <ul id="menu-list">
-          <li><a href="#">Accueil</a></li>
+          <li><a href="index.php">Accueil</a></li>
           <li class="menu-read">
 
-            <a href="#">Lecture <i class="fas fa-chevron-right"></i></a>
+            <a href="index.php?page=read">Lecture <i class="fas fa-chevron-right"></i></a>
             <ul class="submenu">
               <li><a href="#">Chapitre 1</a></li>
               <li><a href="#">Chapitre 2</a></li>
@@ -39,10 +39,10 @@
             </ul>
 
           </li>
-          <li><a href="#">À propos</a></li>
-          <li><a href="#">Connexion</a></li>
+          <li><a href="index.php?page=about">À propos</a></li>
+          <li><a href="index.php?page=login">Connexion</a></li>
         </ul>
-        <img class="menu-separator menu-separator-2" src="../../public/img/trenner3.svg" alt="separator">
+        <img class="menu-separator menu-separator-2" src="public/img/trenner3.svg" alt="separator">
       </div>
 
       <div class="icons-container menu-icons-container">
@@ -62,13 +62,20 @@
 
     </div>
   </nav>
-  
+  <?php
+  if(!$pageName === "accueil")
+  {?>
   <header>
     <h1 class="logo">Jean Forteroche</h1>
   </header>
+  <?php
+  }
+  ?>
 
-  <section id="content-container" class="page-name"></section>
+  <section id="content-container" class="<?= $pageName;?>">
+  <?= $content;?>
+  </section>
 
-  <script src="../../public/js/script.js"></script>
+  <script src="public/js/script.js"></script>
 </body>
 </html>
