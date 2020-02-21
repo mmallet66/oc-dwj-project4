@@ -1,8 +1,16 @@
 <?php
 
+/**
+ * Class Manager
+ * 
+ * Provides PDO connection for all heir classes
+ */
 abstract class Manager
 {
 
+  /**
+   * @return object PDO - database connection
+   */
   protected function dbConnect()
   {
 
