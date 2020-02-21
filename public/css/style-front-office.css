@@ -446,8 +446,13 @@ section#content-container.read-chapter #comment-form input {
 
 /* ---- ERROR ---- */
 
+<<<<<<< HEAD
 section#content-container.error #error-message {
   color: #bd1b1b;
+=======
+section#content-container.error h2#error-message {
+  color: #db1b1b;
+>>>>>>> back-end
   font-size: 3rem;
   text-align: center;
 }
