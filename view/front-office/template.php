@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
-  <link rel="stylesheet" href="../../public/css/style-global.css">
-  <link rel="stylesheet" href="../../public/css/style-front-office.css">
-  <title>Jean Forteroche</title>
+  <link rel="stylesheet" href="public/css/style-global.css">
+  <link rel="stylesheet" href="public/css/style-front-office.css">
+  <title><?= $title;?>Jean Forteroche</title>
 </head>
 
 <body class="front-office">
@@ -67,8 +67,10 @@
     <h1 class="logo">Jean Forteroche</h1>
   </header>
 
-  <section id="content-container" class="page-name"></section>
+  <section id="content-container" class="<?= $pageName;?>">
+  <?= $content;?>
+  </section>
 
-  <script src="../../public/js/script.js"></script>
+  <script src="public/js/script.js"></script>
 </body>
 </html>
