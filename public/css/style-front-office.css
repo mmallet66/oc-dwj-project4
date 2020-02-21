@@ -443,3 +443,11 @@ section#content-container.read-chapter #comment-form input {
   display: flex;
   flex-direction: column;
 }
+
+/* ---- ERROR ---- */
+
+section#content-container.error #error-message {
+  color: #bd1b1b;
+  font-size: 3rem;
+  text-align: center;
+}
