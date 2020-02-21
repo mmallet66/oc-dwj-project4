@@ -24,7 +24,7 @@
       <h2 id="menu-title" class="logo">Jean Forteroche</h2>
       <div id="menu-content">
 
-        <img class="menu-separator menu-separator-1" src="../../public/img/trenner3.svg" alt="separator">
+        <img class="menu-separator menu-separator-1" src="public/img/trenner3.svg" alt="separator">
 
         <ul id="menu-list">
           <li><a href="#">Accueil</a></li>
@@ -42,7 +42,7 @@
           <li><a href="#">À propos</a></li>
           <li><a href="#">Connexion</a></li>
         </ul>
-        <img class="menu-separator menu-separator-2" src="../../public/img/trenner3.svg" alt="separator">
+        <img class="menu-separator menu-separator-2" src="public/img/trenner3.svg" alt="separator">
       </div>
 
       <div class="icons-container menu-icons-container">
