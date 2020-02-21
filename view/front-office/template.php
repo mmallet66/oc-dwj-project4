@@ -62,10 +62,15 @@
 
     </div>
   </nav>
-  
+  <?php
+  if(!$pageName === "accueil")
+  {?>
   <header>
     <h1 class="logo">Jean Forteroche</h1>
   </header>
+  <?php
+  }
+  ?>
 
   <section id="content-container" class="<?= $pageName;?>">
   <?= $content;?>
