@@ -27,10 +27,10 @@
         <img class="menu-separator menu-separator-1" src="public/img/trenner3.svg" alt="separator">
 
         <ul id="menu-list">
-          <li><a href="#">Accueil</a></li>
+          <li><a href="index.php">Accueil</a></li>
           <li class="menu-read">
 
-            <a href="#">Lecture <i class="fas fa-chevron-right"></i></a>
+            <a href="index.php?page=read">Lecture <i class="fas fa-chevron-right"></i></a>
             <ul class="submenu">
               <li><a href="#">Chapitre 1</a></li>
               <li><a href="#">Chapitre 2</a></li>
@@ -39,8 +39,8 @@
             </ul>
 
           </li>
-          <li><a href="#">À propos</a></li>
-          <li><a href="#">Connexion</a></li>
+          <li><a href="index.php?page=about">À propos</a></li>
+          <li><a href="index.php?page=login">Connexion</a></li>
         </ul>
         <img class="menu-separator menu-separator-2" src="public/img/trenner3.svg" alt="separator">
       </div>
