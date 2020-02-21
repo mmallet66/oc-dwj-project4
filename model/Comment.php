@@ -24,6 +24,11 @@ class Comment
   private $_content;
 
   /**
+   * @var int 0 or 1, serves as a boolean for know if the comment is reported or not
+   */
+  private $_reported;
+
+  /**
    * @var int Identifier of the chapter concerned by the comment
    */
   private $_chapterId;
@@ -77,6 +82,18 @@ class Comment
       $this->_content = $content;
     }
   }
+
+  /**
+   * @param int Value assigned to $_reported property
+   */
+  public function setReported($state)
+  {
+    $reported = (int) $state;
+    if ($reported === 0 || $reported === 1)
+    {
+      $this->_reported = $reported;
+    }
+  }
   
   /**
    * @param int $chapterId Value assigned to $_chapterId property
@@ -89,6 +106,7 @@ class Comment
   public function getId() { return $this->_id; }
   public function getAuthor() { return $this->_author; }
   public function getContent() { return $this->_content; }
+  public function getReported() { return $this->_reported; }
   public function getChapterId() { return $this->_chapterId; }
 
 }
