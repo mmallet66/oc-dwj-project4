@@ -55,7 +55,7 @@ class Chapter
   /**
    * @param int $id Value assigned to $_id property
    */
-  public function setId($id) {
+  private function setId($id) {
     $this->_id = (int) $id;
   }
 
