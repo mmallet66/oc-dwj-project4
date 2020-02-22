@@ -114,14 +114,19 @@ class CommentManager extends Manager
   }
 
   /**
-   * @param integer Comment identifier
+   * @param object Comment object
    * 
    * @return int Number of rows affected in the database or false if an error occured
    */
-  public function updateComment(int $commentId)
+  public function updateComment(object $comment)
   {
-    $req = $this->_db->prepare("UPDATE comments SET author, content, reported WHERE id=?");
-    $affectedLines = $req->execute(array($commentId));
+    $req = $this->_db->prepare("UPDATE comments SET author=?, content=?, reported=? WHERE id=?");
+    $affectedLines = $req->execute(array(
+      $comment->getAuthor(),
+      $comment->getContent(),
+      $comment->getReported(),
+      $comment->getId()
+    ));
 
     return $affectedLines;
   }
