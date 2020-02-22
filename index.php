@@ -12,9 +12,9 @@ try
     switch($_GET["page"])
     {
       case "read":
-        if(isset($_POST["number"]) && $_POST["number"] > 0)
+        if(isset($_POST["chapterId"]) && $_POST["chapterId"] > 0)
         {
-          $frontController->getReadChapter($_POST["number"]);
+          $frontController->getReadChapter($_POST["chapterId"]);
         }
         else{
           $frontController->getReadPage();

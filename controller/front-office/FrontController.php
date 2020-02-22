@@ -71,10 +71,10 @@ class FrontController
   /**
    * Call the "readChapter" page view
    */
-  public function getReadChapter(int $chapterNumber)
+  public function getReadChapter(int $chapterId)
   {
-    $this->chapter->hydrate($this->chapterManager->getChapter($chapterNumber));
-    $comments = $this->commentManager->getCommentsOfChapter($chapterNumber);
+    $this->chapter->hydrate($this->chapterManager->getChapter($chapterId));
+    $comments = $this->commentManager->getCommentsOfChapter($chapterId);
 
     require "view/front-office/readChapter.php";
   }

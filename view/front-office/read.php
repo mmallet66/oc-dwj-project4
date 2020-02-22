@@ -14,15 +14,15 @@ ob_start();
       <p>À ce moment Pierre n'est plus dans sa réalité, il prends la première sortie et se dirige vers l'aéroport, la voilà son embarcation ... advienne que pourra se dit-il. Et si demain commençait une autre vie !</p>
     </div>
     <form action="index.php?page=read" method="post">
-      <label for="number">Choisir un chapitre :</label>
-      <select name="number">
+      <label for="chapterId">Choisir un chapitre :</label>
+      <select name="chapterId">
         <option value="">-- Choisir --</option>
       <?php
       while($line = $data->fetch())
       {
-        $this->chapter->hydrate($line);
-        $number = $this->chapter->getNumberOrder()?>
-        <option value= <?= $number; ?> >Chapitre <?= $number; ?> </option>
+        $this->chapter->hydrate($line);?>
+
+        <option value= <?= $this->chapter->getId(); ?> >Chapitre <?= $this->chapter->getNumberOrder(); ?> </option>
       <?php
       }
       ?>

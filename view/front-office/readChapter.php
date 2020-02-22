@@ -1,5 +1,5 @@
 <?php
-$title = "Chapitre " . $_POST["number"];
+$title = "Chapitre " . $_POST["chapterId"];
 $pageName = "read-chapter";
 
 ob_start();
