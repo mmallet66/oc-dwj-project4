@@ -31,7 +31,12 @@ class Comment
   /**
    * @var int Identifier of the chapter concerned by the comment
    */
-  private $_chapterId;
+  private $_chapterNumber;
+
+  /**
+   * @var string Creation date of the comment (in french)
+   */
+  private $_dateComment;
 
 // METHODS
   /**
@@ -96,10 +101,20 @@ class Comment
   }
   
   /**
-   * @param int $chapterId Value assigned to $_chapterId property
+   * @param int $chapterNumber Value assigned to $_chapterId property
    */
-  private function setChapterId($chapterId) {
-    $this->_chapterId = (int) $chapterId;
+  private function setChapterNumber($chapterNumber) {
+    $this->_chapterNumber = (int) $chapterNumber;
+  }
+
+  /**
+   * @param string  Value assigned to $_dateComment property
+   */
+  private function setDateComment($date) {
+    if(is_string($date))
+    {
+      $this->_dateComment = $date;
+    }
   }
 
 // GETTERS :
@@ -107,6 +122,7 @@ class Comment
   public function getAuthor() { return $this->_author; }
   public function getContent() { return $this->_content; }
   public function getReported() { return $this->_reported; }
-  public function getChapterId() { return $this->_chapterId; }
+  public function getChapterNumber() { return $this->_chapterNumber; }
+  public function getDateComment() { return $this->_dateComment; }
 
 }

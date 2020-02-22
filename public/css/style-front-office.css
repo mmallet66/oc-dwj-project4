@@ -69,36 +69,8 @@
   justify-content: space-between;
 }
 
-#menu-content .menu-read {
-  position: relative;
-}
-
-#menu-content .menu-read:hover .submenu {
-  visibility: visible;
-}
-
-#menu-content .menu-read .submenu {
-  position: absolute;
-  left: 100%;
-  top: -200%;
-  visibility: hidden;
-}
-
 #menu-content ul {
   background-color: white;
-}
-
-#menu-content .submenu {
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-#menu-content .submenu li:first-child, #menu-content .submenu li:first-child a {
-  border-top-right-radius: 10px;
-}
-
-#menu-content .submenu li:last-child, #menu-content .submenu li:last-child a {
-  border-bottom-right-radius: 10px;
 }
 
 /* 

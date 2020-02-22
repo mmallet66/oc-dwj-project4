@@ -55,11 +55,22 @@ class ChapterManager extends Manager
   }
 
   /**
+   * @param int $published 0 or 1, allows to choose all published chapters or all chapters 
+   * 
    * @return object Return a PDOStatement Object, or false if an error occured
    */
-  public function getAllChapters()
+  public function getAllChapters(int $published=0)
   {
-    $req = $this->_db->query("SELECT id, number_order AS numberOrder, title, content, published FROM chapters");
+    switch($published)
+    {
+      case 1:
+        $req = $this->_db->prepare("SELECT id, number_order AS numberOrder, title, content, published FROM chapters WHERE published=?");
+        $req->execute(array($published));
+        break;
+      case 0:
+        $req = $this->_db->query("SELECT id, number_order AS numberOrder, title, content, published FROM chapters");
+        break;
+    }
 
     return $req;
   }

@@ -2,6 +2,8 @@
 
 require_once "model/Chapter.php";
 require_once "model/ChapterManager.php";
+require_once "model/Comment.php";
+require_once "model/CommentManager.php";
 
 /**
  * Class FrontController
@@ -10,6 +12,19 @@ require_once "model/ChapterManager.php";
  */
 class FrontController
 {
+
+  public $chapterManager;
+  public $commentManager;
+  public $chapter;
+  public $comment;
+
+  public function __construct()
+  {
+    $this->chapterManager = new ChapterManager();
+    $this->chapter = new Chapter();
+    $this->commentManager = new CommentManager();
+    $this->comment = new Comment();
+  }
   /**
    * Call the accueil page view
    */
@@ -41,5 +56,26 @@ class FrontController
   {
     require "view/front-office/error.php";
   }
+  
+  /**
+   * Call the "read" page view
+   */
+  public function getReadPage()
+  {
+    $published = 1;
+    $data = $this->chapterManager->getAllChapters($published);
 
+    require "view/front-office/read.php";
+  }
+
+  /**
+   * Call the "readChapter" page view
+   */
+  public function getReadChapter(int $chapterNumber)
+  {
+    $this->chapter->hydrate($this->chapterManager->getChapter($chapterNumber));
+    $comments = $this->commentManager->getCommentsOfChapter($chapterNumber);
+
+    require "view/front-office/readChapter.php";
+  }
 }
