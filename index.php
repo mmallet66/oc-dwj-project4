@@ -16,6 +16,14 @@ try
         {
           $frontController->getReadChapter($_POST["chapterId"]);
         }
+        elseif(isset($_GET["chapterId"]) && $_GET["chapterId"] > 0)
+        {
+          $frontController->getReadChapter($_GET["chapterId"]);
+        }
+        elseif(isset($_GET["report"]))
+        {
+          $frontController->reportComment($_GET["commentId"]);
+        }
         else{
           $frontController->getReadPage();
         }
