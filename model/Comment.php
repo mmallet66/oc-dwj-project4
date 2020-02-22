@@ -33,6 +33,11 @@ class Comment
    */
   private $_chapterId;
 
+  /**
+   * @var string Creation date of the comment (in french)
+   */
+  private $_dateComment;
+
 // METHODS
   /**
    * Hydratation method
@@ -102,11 +107,22 @@ class Comment
     $this->_chapterId = (int) $chapterId;
   }
 
+  /**
+   * @param string  Value assigned to $_dateComment property
+   */
+  private function setDateComment($date) {
+    if(is_string($date))
+    {
+      $this->_dateComment = $date;
+    }
+  }
+
 // GETTERS :
   public function getId() { return $this->_id; }
   public function getAuthor() { return $this->_author; }
   public function getContent() { return $this->_content; }
   public function getReported() { return $this->_reported; }
   public function getChapterId() { return $this->_chapterId; }
+  public function getDateComment() { return $this->_dateComment; }
 
 }
