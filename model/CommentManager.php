@@ -29,7 +29,7 @@ class CommentManager extends Manager
    */
   public function addComment(object $comment)
   {
-    $req = $this->_db->prepare("INSERT INTO comments (author, content, chapter_number, DATE_FORMAT(date_comment, '%d/%m/%Y à %Hh%imin%ss') AS dateComment) VALUES (?, ?, ?, NOW()");
+    $req = $this->_db->prepare("INSERT INTO comments (author, content, chapter_number, DATE_FORMAT(date_comment, '%d/%m/%Y à %Hh%imin%ss')) VALUES (?, ?, ?, NOW()");
 
     $affectedLines = $req->execute(array(
       $comment->getAuthor(),
@@ -38,6 +38,18 @@ class CommentManager extends Manager
     ));
 
     return $affectedLines;
+  }
+
+  /**
+   * @param integer Comment identifier
+   * 
+   * @return array Data of a comment
+   */
+  public function getComment(int $commentId)
+  {
+    $req = $this->_db->query("SELECT id, author, content, reported, chapter_number AS chapterNumber, DATE_FORMAT(date_comment, '%d/%m/%Y à %Hh%imin%ss') AS dateComment FROM comments WHERE id=$commentId");
+
+    return $req->fetch();
   }
   
   /**
