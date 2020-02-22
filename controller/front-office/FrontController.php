@@ -78,4 +78,17 @@ class FrontController
 
     require "view/front-office/readChapter.php";
   }
+
+  public function reportComment($commentId)
+  {
+    $this->comment->hydrate($this->commentManager->getComment($commentId));
+
+    if($this->comment->getReported() != 1)
+    {
+      $this->comment->setReported(1);
+      $this->commentManager->updateComment($this->comment);
+    }
+    $url = 'index.php?page=read&chapterId=' . $this->comment->getChapterId();
+    header("Location: $url");
+  }
 }
