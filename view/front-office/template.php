@@ -53,7 +53,7 @@
     </div>
   </nav>
   <?php
-  if(!$pageName === "accueil")
+  if($pageName != "accueil")
   {?>
   <header>
     <h1 class="logo">Jean Forteroche</h1>
