@@ -28,17 +28,7 @@
 
         <ul id="menu-list">
           <li><a href="index.php">Accueil</a></li>
-          <li class="menu-read">
-
-            <a href="index.php?page=read">Lecture <i class="fas fa-chevron-right"></i></a>
-            <ul class="submenu">
-              <li><a href="#">Chapitre 1</a></li>
-              <li><a href="#">Chapitre 2</a></li>
-              <li><a href="#">Chapitre 3</a></li>
-              <li><a href="#">Chapitre 4</a></li>
-            </ul>
-
-          </li>
+          <li><a href="index.php?page=read">Lecture</a></li>
           <li><a href="index.php?page=about">À propos</a></li>
           <li><a href="index.php?page=login">Connexion</a></li>
         </ul>
