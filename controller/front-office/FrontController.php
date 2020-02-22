@@ -41,5 +41,18 @@ class FrontController
   {
     require "view/front-office/error.php";
   }
+  
+  /**
+   * Call the "read" page view
+   */
+  public function getReadPage()
+  {
+    $chapterManager = new ChapterManager();
+    $chapter = new Chapter();
 
+    $published = 1;
+    $data = $chapterManager->getAllChapters($published);
+
+    require "view/front-office/read.php";
+  }
 }
