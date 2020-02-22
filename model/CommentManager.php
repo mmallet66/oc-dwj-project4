@@ -29,26 +29,26 @@ class CommentManager extends Manager
    */
   public function addComment(object $comment)
   {
-    $req = $this->_db->prepare("INSERT INTO comments (author, content, chapter_id) VALUES (?, ?, ?)");
+    $req = $this->_db->prepare("INSERT INTO comments (author, content, chapter_number) VALUES (?, ?, ?)");
 
     $affectedLines = $req->execute(array(
       $comment->getAuthor(),
       $comment->getContent(),
-      $comment->getChapterId()
+      $comment->getChapterNumber()
     ));
 
     return $affectedLines;
   }
   
   /**
-   * @param integer Chapter identifier
+   * @param integer Chapter number order
    * 
    * @return object Return a PDOStatement Object, or false
    */
-  public function getCommentsOfChapter(int $chapterId)
+  public function getCommentsOfChapter(int $chapterNumber)
   {
-    $req = $this->_db->prepare("SELECT id, author, content, reported, chapter_id AS chapterID FROM comments WHERE id=?");
-    $req->execute(array($chapterId));
+    $req = $this->_db->prepare("SELECT id, author, content, reported, chapter_number AS chapterNumber FROM comments WHERE chapter_number=?");
+    $req->execute(array($chapterNumber));
 
     return $req;
   }
@@ -60,7 +60,7 @@ class CommentManager extends Manager
    */
   public function getReportedComments(int $reported)
   {
-    $req = $this->_db->prepare("SELECT id, author, content, reported, chapter_id AS chapterID FROM comments WHERE reported=?");
+    $req = $this->_db->prepare("SELECT id, author, content, reported, chapter_number AS chapterNumber FROM comments WHERE reported=?");
     $req->execute(array($reported));
 
     return $req;
@@ -85,11 +85,11 @@ class CommentManager extends Manager
    * 
    * @return int Number of rows affected in the database or false if an error occured
    */
-  public function removeCommentsOfChapter(int $chapterId)
+  public function removeCommentsOfChapter(int $chapterNumber)
   {
-    $req = $this->_db->prepare("DELETE FROM comments WHERE chapter_id=?");
+    $req = $this->_db->prepare("DELETE FROM comments WHERE chapter_number=?");
 
-    $affectedLines = $req->execute(array($chapterId));
+    $affectedLines = $req->execute(array($chapterNumber));
 
     return $affectedLines;
   }
