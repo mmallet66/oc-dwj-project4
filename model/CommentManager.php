@@ -58,10 +58,17 @@ class CommentManager extends Manager
    * 
    * @return object Return PDOStatement Object, or false
    */
-  public function getReportedComments(int $reported)
+  public function getComments(int $reported=0)
   {
-    $req = $this->_db->prepare("SELECT id, author, content, reported, chapter_number AS chapterNumber FROM comments WHERE reported=?");
-    $req->execute(array($reported));
+    if($reported == 0 || $reported == 1)
+    {
+        $req = $this->_db->prepare("SELECT id, author, content, reported, chapter_number AS chapterNumber FROM comments WHERE reported=?");
+        $req->execute(array($reported));
+    }
+    else
+    {
+      $req = $this->_db->query("SELECT id, author, content, reported, chapter_number AS chapterNumber FROM comments");
+    }
 
     return $req;
   }
