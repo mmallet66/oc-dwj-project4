@@ -20,8 +20,8 @@ ob_start();
       <?php
       while($line = $data->fetch())
       {
-        $chapter->hydrate($line);
-        $number = $chapter->getNumberOrder()?>
+        $this->chapter->hydrate($line);
+        $number = $this->chapter->getNumberOrder()?>
         <option value= <?= $number; ?> >Chapitre <?= $number; ?> </option>
       <?php
       }
