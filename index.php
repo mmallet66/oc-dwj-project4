@@ -12,7 +12,13 @@ try
     switch($_GET["page"])
     {
       case "read":
-        throw new Exception("Oups ! Cette page n'existe pas, désolé !");
+        if(isset($_POST["number"]) && $_POST["number"] > 0)
+        {
+          $frontController->getReadChapter($_POST["number"]);
+        }
+        else{
+          $frontController->getReadPage();
+        }
         break;
 
       case "about":
