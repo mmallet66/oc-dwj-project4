@@ -6,8 +6,8 @@ ob_start();
 ?>
 <div>
   <article id="chapter-content">
-    <?= $chapter->getTitle(); ?>
-    <?= $chapter->getContent(); ?>
+    <?= $this->chapter->getTitle(); ?>
+    <?= $this->chapter->getContent(); ?>
   </article>
   <article id="comments-container">
     <div id="head">
@@ -31,17 +31,17 @@ ob_start();
       <?php
       while($commentData = $comments->fetch())
       {
-        $comment->hydrate($commentData);
+        $this->comment->hydrate($commentData);
       ?>
       <li class="comment">
         <p class="comment-header">
           <span>
-            <strong><?= $comment->getAuthor() ?></strong>
-            , le <?= $comment->getDateComment() ?> :
+            <strong><?= $this->comment->getAuthor() ?></strong>
+            , le <?= $this->comment->getDateComment() ?> :
           </span>
           <a href="index.php?page=read&amp;report=1">Signaler</a>
         </p>
-        <p class="comment-content"><?= $comment->getContent() ?></p>
+        <p class="comment-content"><?= $this->comment->getContent() ?></p>
       </li>
       <?php
       }
