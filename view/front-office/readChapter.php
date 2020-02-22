@@ -1,5 +1,5 @@
 <?php
-$title = "Chapitre " . $_POST["number"];
+$title = "Chapitre " . $this->chapter->getId();
 $pageName = "read-chapter";
 
 ob_start();
@@ -39,7 +39,11 @@ ob_start();
             <strong><?= $this->comment->getAuthor() ?></strong>
             , le <?= $this->comment->getDateComment() ?> :
           </span>
-          <a href="index.php?page=read&amp;report=1">Signaler</a>
+          <?php if($this->comment->getReported() != 1)
+          {?>
+          <a href="index.php?page=read&amp;commentId=<?= $this->comment->getId() ?>&amp;report=1">Signaler</a>
+          <?php
+          } ?>
         </p>
         <p class="comment-content"><?= $this->comment->getContent() ?></p>
       </li>
