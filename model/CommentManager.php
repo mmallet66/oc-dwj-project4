@@ -47,27 +47,27 @@ class CommentManager extends Manager
    */
   public function getCommentsOfChapter(int $chapterNumber)
   {
-    $req = $this->_db->prepare("SELECT id, author, content, reported, chapter_number AS chapterNumber, DATE_FORMAT(date_comment, '%d/%m/%Y à %Hh%imin%ss') AS dateComment FROM comments WHERE chapter_number=?");
+    $req = $this->_db->prepare("SELECT id, author, content, reported, chapter_number AS chapterNumber, DATE_FORMAT(date_comment, '%d/%m/%Y à %Hh%imin%ss') AS dateComment FROM comments WHERE chapter_number=? ORDER BY date_comment");
     $req->execute(array($chapterNumber));
 
     return $req;
   }
 
   /**
-   * @param integer 0 or 1, serves as a boolean for know if the comment is reported or not
+   * @param integer 0 or 1 or false, serves as a boolean for know if the comment is reported or not
    * 
    * @return object Return PDOStatement Object, or false
    */
-  public function getComments(int $reported=0)
+  public function getComments($reported=false)
   {
-    if($reported == 0 || $reported == 1)
+    if($reported === "0" || $reported === "1")
     {
-        $req = $this->_db->prepare("SELECT id, author, content, reported, chapter_number AS chapterNumber FROM comments WHERE reported=?");
+        $req = $this->_db->prepare("SELECT id, author, content, reported, chapter_number AS chapterNumber, DATE_FORMAT(date_comment, '%d/%m/%Y à %Hh%imin%ss') AS dateComment FROM comments WHERE reported=? ORDER BY date_comment");
         $req->execute(array($reported));
     }
     else
     {
-      $req = $this->_db->query("SELECT id, author, content, reported, chapter_number AS chapterNumber FROM comments");
+      $req = $this->_db->query("SELECT id, author, content, reported, chapter_number AS chapterNumber, DATE_FORMAT(date_comment, '%d/%m/%Y à %Hh%imin%ss') AS dateComment FROM comments ORDER BY date_comment");
     }
 
     return $req;
