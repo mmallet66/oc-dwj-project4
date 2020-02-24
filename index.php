@@ -38,11 +38,21 @@ try
         break;
     }
   }
+  elseif (isset($_GET["action"]) && $_GET["action"] == "makeAComment")
+  {
+    if(!empty($_POST["author"]) && !empty($_POST["content"]) && $_GET["chapterId"] > 0)
+    {
+      $frontController->createComment([
+        "author" => $_POST["author"],
+        "content" => $_POST["content"],
+        "chapterId" => $_GET["chapterId"]
+      ]);
+    }
+  }
   else
   {
     $frontController->getAccueilPage();
   }
-
 }
 catch(Exception $e)
 {
