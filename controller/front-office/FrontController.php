@@ -79,6 +79,21 @@ class FrontController
     require "view/front-office/readChapter.php";
   }
 
+  public function createComment(array $data)
+  {
+    $this->comment->hydrate($data);
+    $affectedLine = $this->commentManager->addComment($this->comment);
+
+    if ($affectedLine === false)
+    {
+        throw new Exception("Impossible d'ajouter le commentaire !");
+    }
+    else
+    {
+        header("Location: index.php?page=read&chapterId=" . $this->comment->getChapterId());
+    }
+  }
+
   public function reportComment($commentId)
   {
     $this->comment->hydrate($this->commentManager->getComment($commentId));
