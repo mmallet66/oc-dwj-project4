@@ -29,7 +29,7 @@ class CommentManager extends Manager
    */
   public function addComment(object $comment)
   {
-    $req = $this->_db->prepare("INSERT INTO comments (author, content, chapter_id, DATE_FORMAT(date_comment, '%d/%m/%Y à %Hh%imin%ss')) VALUES (?, ?, ?, NOW()");
+    $req = $this->_db->prepare('INSERT INTO comments(author, content, chapter_id, date_comment) VALUES (?, ?, ?, NOW())');
 
     $affectedLines = $req->execute(array(
       $comment->getAuthor(),
