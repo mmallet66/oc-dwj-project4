@@ -17,10 +17,10 @@ ob_start();
     <div id="comment-form-container">
       <hr>
       <p><i class="fa fa-angle-down"></i>Écrire un commentaire<i class="fa fa-angle-down"></i></p>
-      <input type="checkbox" name="" id="check">
-      <form id="comment-form">
+      <input type="checkbox" id="check">
+      <form action="index.php?action=makeAComment&amp;chapterId=<?= $this->chapter->getId(); ?>" method="POST" id="comment-form">
         <input type="text" name="author" id="author" placeholder="Votre Nom" required>
-        <textarea name="comment-content" id="comment-editor" cols="30" rows="10" placeholder="Saisissez votre commentaire" required></textarea>
+        <textarea name="content" id="comment-editor" cols="30" rows="10" placeholder="Saisissez votre commentaire" required></textarea>
         <input type="submit" value="Envoyer">
       </form>
       <hr>
