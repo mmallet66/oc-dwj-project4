@@ -14,18 +14,23 @@ ob_start();
       <hr><p>Commentaires</p><hr>
     </div>
 
+    <?php
+    if(session_status() == 2):
+    ?>
     <div id="comment-form-container">
       <hr>
       <p><i class="fa fa-angle-down"></i>Écrire un commentaire<i class="fa fa-angle-down"></i></p>
       <input type="checkbox" id="check">
-      <form action="index.php?action=makeAComment&amp;chapterId=<?= $this->chapter->getId(); ?>" method="POST" id="comment-form">
-        <input type="text" name="author" id="author" placeholder="Votre Nom" required>
-        <textarea name="content" id="comment-editor" cols="30" rows="10" placeholder="Saisissez votre commentaire" required></textarea>
-        <input type="submit" value="Envoyer">
-      </form>
+        <form action="index.php?action=makeAComment&amp;chapterId=<?= $this->chapter->getId(); ?>" method="POST" id="comment-form">
+          <input type="text" name="author" id="author" placeholder="Votre Nom" required>
+          <textarea name="content" id="comment-editor" cols="30" rows="10" placeholder="Saisissez votre commentaire" required></textarea>
+          <input type="submit" value="Envoyer">
+        </form>
       <hr>
     </div>
-    
+    <?php
+    endif;
+    ?>
     
     <ul id="comments">
       <?php
