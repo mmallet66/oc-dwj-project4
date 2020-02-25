@@ -26,16 +26,6 @@ class user
   /**
    * @var string
    */
-  private $_firstName;
-
-  /**
-   * @var string
-   */
-  private $_name;
-
-  /**
-   * @var string
-   */
   private $_eMail;
 
   /**
@@ -92,29 +82,9 @@ class user
   }
 
   /**
-   * @param string Value assigned to $_firstName property
-   */
-  public function setFirstName(string $firstName)
-  {
-    if(is_string($firstName)):
-      $this->_firstName = $firstName;
-    endif;
-  }
-
-  /**
-   * @param string Value assigned to $_name property
-   */
-  public function setName(string $name)
-  {
-    if(is_string($name)):
-      $this->_name = $name;
-    endif;
-  }
-
-  /**
    * @param string Value assigned to $_eMail property
    */
-  public function setEmail(string $eMail)
+  public function setMail(string $eMail)
   {
     if(is_string($eMail)):
       $this->_eMail = $eMail;
@@ -135,8 +105,6 @@ class user
   public function getId() { return $this->_id; }
   public function getLogin() { return $this->_login; }
   public function getPasword() { return $this->_password; }
-  public function getFirstName() { return $this->_firstName; }
-  public function getName() { return $this->_name; }
-  public function getEMail() { return $this->_eMail; }
+  public function getMail() { return $this->_eMail; }
   public function getRole() { return $this->_role; }
 }
