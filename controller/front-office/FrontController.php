@@ -51,6 +51,14 @@ class FrontController
   }
 
   /**
+   * Call the "registration" page view
+   */
+  public function getRegistrationPage()
+  {
+    require "view/front-office/registration.php";
+  }
+
+  /**
    * Call the "error" page view
    */
   public function getErrorPage(string $errorMessage)
