@@ -25,6 +25,7 @@ class FrontController
     $this->commentManager = new CommentManager();
     $this->comment = new Comment();
   }
+
   /**
    * Call the accueil page view
    */
@@ -47,6 +48,14 @@ class FrontController
   public function getLoginPage()
   {
     require "view/front-office/login.php";
+  }
+
+  /**
+   * Call the "registration" page view
+   */
+  public function getRegistrationPage()
+  {
+    require "view/front-office/registration.php";
   }
 
   /**
@@ -79,6 +88,9 @@ class FrontController
     require "view/front-office/readChapter.php";
   }
 
+  /**
+   * @param array $data
+   */
   public function createComment(array $data)
   {
     $this->comment->hydrate($data);
@@ -94,7 +106,10 @@ class FrontController
     }
   }
 
-  public function reportComment($commentId)
+  /**
+   * @param integer $commentId
+   */
+  public function reportComment(int $commentId)
   {
     $this->comment->hydrate($this->commentManager->getComment($commentId));
 

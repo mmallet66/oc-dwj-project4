@@ -10,15 +10,17 @@ ob_start();
   <div>
     <label for="username">
       <i class="fas fa-user"></i>
-      <input type="text" name="username" id="username" placeholder="USERNAME">
+      <input type="text" name="username" id="username" placeholder="PSEUDO" required>
     </label>
     <label for="password">
       <i class="fas fa-unlock"></i>
-      <input type="password" name="password" id="password" placeholder="PASSWORD">
+      <input type="password" name="password" id="password" placeholder="MOT DE PASSE" required>
     </label>
   </div>
   <input type="submit" name="submit" id="submit" value="CONNEXION">
 </form>
+
+<p>Pas de compte utilisateur ? <a id="registration" href="index.php?page=registration">Inscrivez vous</a>.</p>
 <?php
 $content = ob_get_clean();
 

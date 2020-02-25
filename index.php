@@ -1,8 +1,10 @@
 <?php
-
+session_start();
 require_once "controller/front-office/FrontController.php";
+require_once "controller/front-office/ConnectionController.php";
 
 $frontController = new FrontController();
+$connexionController = new ConnectionController();
 
 
 try
@@ -35,6 +37,17 @@ try
       
       case "login":
         $frontController->getLoginPage();
+        break;
+
+      case "registration":
+        if(isset($_GET["action"]) && $_GET["action"] === "new")
+        {
+          $connexionController->addNewUser($_POST);
+        }
+        else
+        {
+          $frontController->getRegistrationPage();
+        }
         break;
     }
   }
