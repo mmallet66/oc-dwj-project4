@@ -104,7 +104,7 @@ class user
 // GETTERS
   public function getId() { return $this->_id; }
   public function getLogin() { return $this->_login; }
-  public function getPasword() { return $this->_password; }
+  public function getPassword() { return $this->_password; }
   public function getMail() { return $this->_eMail; }
   public function getRole() { return $this->_role; }
 }
