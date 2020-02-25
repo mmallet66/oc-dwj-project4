@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once "controller/front-office/FrontController.php";
 require_once "controller/front-office/ConnectionController.php";
 
@@ -48,6 +47,10 @@ try
         {
           $frontController->getRegistrationPage();
         }
+        break;
+
+      default:
+        header("Location: index.php");
         break;
     }
   }
