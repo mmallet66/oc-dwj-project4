@@ -41,7 +41,7 @@ class user
   /**
    * @var string
    */
-  private $_rule;
+  private $_role;
 
 // METHODS
   /**
@@ -122,12 +122,12 @@ class user
   }
   
   /**
-   * @param string Value assigned to $_rule property
+   * @param string Value assigned to $_role property
    */
-  public function setRule(string $rule)
+  public function setRole(string $role)
   {
-    if(is_string($rule)):
-      $this->_rule = $rule;
+    if(is_string($role)):
+      $this->_role = $role;
     endif;
   }
 
@@ -138,5 +138,5 @@ class user
   public function getFirstName() { return $this->_firstName; }
   public function getName() { return $this->_name; }
   public function getEMail() { return $this->_eMail; }
-  public function getRule() { return $this->_rule; }
+  public function getRole() { return $this->_role; }
 }

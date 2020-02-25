@@ -8,7 +8,7 @@ require_once "User.php";
  * 
  * Allows you create a user manager. Insert, recover, update, delete, a user in database
  */
-class UserManager
+class UserManager extends Manager
 {
 //PROPERTIES
   /**
@@ -29,7 +29,7 @@ class UserManager
    */
   public function adduser(object $user)
   {
-    $req = $this->_db->prepare('INSERT INTO users(login, password, first-name, name, e-mail, rule) VALUES (?, ?, ?, ?, ?, ?)');
+    $req = $this->_db->prepare('INSERT INTO users(login, password, first-name, name, e-mail, role) VALUES (?, ?, ?, ?, ?, ?)');
 
     $affectedLines = $req->execute(array(
       $user->getLogin(),
@@ -37,7 +37,7 @@ class UserManager
       $user->getFirstName(),
       $user->getName(),
       $user->getEMail(),
-      $user->getRule()
+      $user->getRole()
     ));
 
     return $affectedLines;
@@ -50,7 +50,7 @@ class UserManager
    */
   public function getuser(object $user)
   {
-    $req = $this->_db->prepare('SELECT id, login, password, first-name, name, e-mail, rule FROM users WHERE id=?');
+    $req = $this->_db->prepare('SELECT id, login, password, first-name, name, e-mail, role FROM users WHERE id=?');
 
     $affectedLines = $req->execute(array(
       $user->getId()
