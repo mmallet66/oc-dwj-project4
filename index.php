@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once "controller/front-office/FrontController.php";
 require_once "controller/front-office/ConnectionController.php";
 
