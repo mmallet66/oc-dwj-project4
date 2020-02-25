@@ -27,35 +27,30 @@ class UserManager extends Manager
    * 
    * @return affectedLines Number of rows affected in the database or false if an error occured
    */
-  public function adduser(object $user)
+  public function addUser(object $user)
   {
-    $req = $this->_db->prepare('INSERT INTO users(login, password, first-name, name, e-mail, role) VALUES (?, ?, ?, ?, ?, ?)');
+    $req = $this->_db->prepare('INSERT INTO users(login, password, e_mail) VALUES (?, ?, ?)');
 
     $affectedLines = $req->execute(array(
       $user->getLogin(),
-      $user->getPassword(),
-      $user->getFirstName(),
-      $user->getName(),
-      $user->getEMail(),
-      $user->getRole()
+      sha1($user->getPassword()),
+      $user->getMail()
     ));
 
     return $affectedLines;
   }
 
   /**
-   * @param object $user
+   * @param integer $userId
    * 
    * @return affectedLines Number of rows affected in the database or false if an error occured
    */
-  public function getuser(object $user)
+  public function getUser(string $userLogin)
   {
-    $req = $this->_db->prepare('SELECT id, login, password, first-name, name, e-mail, role FROM users WHERE id=?');
+    $req = $this->_db->prepare('SELECT id, login, password, e_mail AS mail, role FROM users WHERE login=?');
 
-    $affectedLines = $req->execute(array(
-      $user->getId()
-    ));
-
-    return $affectedLines;
+    $affectedLine = $req->execute(array($userLogin));
+    
+    return $affectedLine;
   }
 }
