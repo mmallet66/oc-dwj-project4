@@ -48,6 +48,10 @@ try
           $frontController->getRegistrationPage();
         }
         break;
+
+      default:
+        header("Location: index.php");
+        break;
     }
   }
   elseif (isset($_GET["action"]) && $_GET["action"] == "makeAComment")
