@@ -1,4 +1,5 @@
 <?php
+session_start();
 $title = "Chapitre " . $this->chapter->getId();
 $pageName = "read-chapter";
 
@@ -15,14 +16,14 @@ ob_start();
     </div>
 
     <?php
-    if(session_status() == 2):
+    if(isset($_SESSION["username"])):
     ?>
     <div id="comment-form-container">
       <hr>
       <p><i class="fa fa-angle-down"></i>Écrire un commentaire<i class="fa fa-angle-down"></i></p>
       <input type="checkbox" id="check">
-        <form action="index.php?action=makeAComment&amp;chapterId=<?= $this->chapter->getId(); ?>" method="POST" id="comment-form">
-          <input type="text" name="author" id="author" placeholder="Votre Nom" required>
+        <form action="index.php?action=makeAComment&amp;author=<?= $_SESSION["username"] ?>&amp;chapterId=<?= $this->chapter->getId(); ?>" method="POST" id="comment-form">
+          <!-- <input type="text" name="author" id="author" placeholder="Votre Nom" required> -->
           <textarea name="content" id="comment-editor" cols="30" rows="10" placeholder="Saisissez votre commentaire" required></textarea>
           <input type="submit" value="Envoyer">
         </form>
@@ -44,7 +45,7 @@ ob_start();
             <strong><?= $this->comment->getAuthor() ?></strong>
             , le <?= $this->comment->getDateComment() ?> :
           </span>
-          <?php if($this->comment->getReported() != 1)
+          <?php if(isset($_SESSION["username"]) && $this->comment->getReported() != 1)
           {?>
           <a href="index.php?page=read&amp;commentId=<?= $this->comment->getId() ?>&amp;report=1">Signaler</a>
           <?php

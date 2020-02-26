@@ -28,4 +28,22 @@ class ConnectionController
 
     header("Location: index.php?page=login");
   }
+
+  public function checkUser(array $loginPass)
+  {
+    $login = $loginPass["username"];
+    $passwd = sha1($loginPass["password"]);
+
+    $data = $this->userManager->getUser($login);
+    $this->user->hydrate($data);
+
+    if($this->user->getPassword() == $passwd)
+    {
+      return $this->user->getRole();
+    }
+    else
+    {
+      return false;
+    }
+  }
 }

@@ -35,7 +35,35 @@ try
         break;
       
       case "login":
-        $frontController->getLoginPage();
+        if(isset($_GET["action"]))
+        {
+          session_start();
+          switch ( $_GET["action"])
+          {
+            case "connect":
+              if($userRole = $connexionController->checkUser($_POST))
+              {
+                session_start();
+                $_SESSION["username"] = $_POST["username"];
+                $_SESSION["role"] = $userRole;
+                header("Location: index.php");
+              }
+              else
+              {
+                $frontController->getLoginPage(true);
+              }
+            break;
+
+            case "disconnect":
+              session_unset();
+              header("Location: index.php");
+            break;
+          }
+        }
+        else
+        {
+          $frontController->getLoginPage();
+        }
         break;
 
       case "registration":
@@ -56,10 +84,10 @@ try
   }
   elseif (isset($_GET["action"]) && $_GET["action"] == "makeAComment")
   {
-    if(!empty($_POST["author"]) && !empty($_POST["content"]) && $_GET["chapterId"] > 0)
+    if(!empty($_POST["content"]) && $_GET["chapterId"] > 0)
     {
       $frontController->createComment([
-        "author" => $_POST["author"],
+        "author" => $_GET["author"],
         "content" => $_POST["content"],
         "chapterId" => $_GET["chapterId"]
       ]);
