@@ -45,7 +45,7 @@ class FrontController
   /**
    * Call the "login" page view
    */
-  public function getLoginPage()
+  public function getLoginPage($errorLogin = false)
   {
     require "view/front-office/login.php";
   }
