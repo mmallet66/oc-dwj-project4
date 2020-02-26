@@ -1,3 +1,8 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +35,16 @@
           <li><a href="index.php">Accueil</a></li>
           <li><a href="index.php?page=read">Lecture</a></li>
           <li><a href="index.php?page=about">À propos</a></li>
-          <li><a href="index.php?page=login">Connexion</a></li>
+          <?php
+          if(isset($_SESSION["username"])):
+            echo "<li><a href='index.php?page=login&action=disconnect'>Déconnexion</a></li>";
+            if($_SESSION["role"] === "admin"):
+              echo "<li><a href='index.php?page=adminAccueil'>Administration</a></li>";
+            endif;
+          else:
+            echo "<li><a href='index.php?page=login'>Connexion</a></li>";
+          endif;
+          ?>
         </ul>
         <img class="menu-separator menu-separator-2" src="public/img/trenner3.svg" alt="separator">
       </div>
