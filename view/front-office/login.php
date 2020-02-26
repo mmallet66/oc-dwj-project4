@@ -5,8 +5,12 @@ $pageName = "login";
 ob_start();
 ?>
 <h2>CONNEXION</h2><hr>
-
-<form action="#" method="post">
+<?php if($errorLogin)
+{
+  echo "<p style='color: #d43232; text-align:center;'>Le Nom d'utilisateur, ou le mot de passe, est erroné.</p>";
+}
+?>
+<form action="index.php?page=login&amp;action=connect" method="post">
   <div>
     <label for="username">
       <i class="fas fa-user"></i>
