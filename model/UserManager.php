@@ -48,9 +48,9 @@ class UserManager extends Manager
   public function getUser(string $userLogin)
   {
     $req = $this->_db->prepare('SELECT id, login, password, e_mail AS mail, role FROM users WHERE login=?');
-
-    $affectedLine = $req->execute(array($userLogin));
+    $req->execute(array($userLogin));
     
-    return $affectedLine;
+    $data = $req->fetch();
+    return $data;
   }
 }
