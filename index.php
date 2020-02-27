@@ -46,7 +46,7 @@ try
                 session_start();
                 $_SESSION["username"] = $_POST["username"];
                 $_SESSION["role"] = $userRole;
-                header("Location: index.php");
+                $frontController->getAccueilPage();
               }
               else
               {
@@ -56,7 +56,7 @@ try
 
             case "disconnect":
               session_unset();
-              header("Location: index.php");
+              $frontController->getAccueilPage();
             break;
           }
         }
@@ -78,7 +78,7 @@ try
         break;
 
       default:
-        header("Location: index.php");
+        $frontController->getAccueilPage();
         break;
     }
   }
