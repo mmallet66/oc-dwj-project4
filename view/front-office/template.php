@@ -39,7 +39,7 @@ if (session_status() == PHP_SESSION_NONE) {
           if(isset($_SESSION["username"])):
             echo "<li><a href='index.php?page=login&action=disconnect'>Déconnexion</a></li>";
             if($_SESSION["role"] === "admin"):
-              echo "<li><a href='index.php?page=adminAccueil'>Administration</a></li>";
+              echo "<li><a href='index.php?admin=accueil'>Administration</a></li>";
             endif;
           else:
             echo "<li><a href='index.php?page=login'>Connexion</a></li>";
