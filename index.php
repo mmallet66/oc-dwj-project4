@@ -37,13 +37,14 @@ try
       case "login":
         if(isset($_GET["action"]))
         {
-          session_start();
+          if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+          }
           switch ( $_GET["action"])
           {
             case "connect":
               if($userRole = $connexionController->checkUser($_POST))
               {
-                session_start();
                 $_SESSION["username"] = $_POST["username"];
                 $_SESSION["role"] = $userRole;
                 $frontController->getAccueilPage();
