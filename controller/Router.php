@@ -5,7 +5,7 @@ class Router
   public function traitment(){
     $frontController = new FrontController();
     $backController = new BackController();
-    $connexionController = new ConnectionController();
+    $userController = new UserController();
 
 
     try
@@ -47,7 +47,7 @@ class Router
                 switch ( $_GET["action"])
                 {
                   case "connect":
-                    if($userRole = $connexionController->checkUser($_POST))
+                    if($userRole = $userController->checkUser($_POST))
                     {
                       $_SESSION["username"] = $_POST["username"];
                       $_SESSION["role"] = $userRole;
@@ -74,7 +74,7 @@ class Router
             case "registration":
               if(isset($_GET["action"]) && $_GET["action"] === "new")
               {
-                $connexionController->addNewUser($_POST);
+                $userController->addNewUser($_POST);
               }
               else
               {
