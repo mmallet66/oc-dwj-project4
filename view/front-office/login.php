@@ -5,7 +5,7 @@ $pageName = "login";
 ob_start();
 ?>
 <h2>CONNEXION</h2><hr>
-<?php if($errorLogin)
+<?php if(isset($errorLogin))
 {
   echo "<p style='color: #d43232; text-align:center;'>Le Nom d'utilisateur, ou le mot de passe, est erroné.</p>";
 }
@@ -24,7 +24,7 @@ ob_start();
   <input type="submit" name="submit" id="submit" value="CONNEXION">
 </form>
 
-<p>Pas de compte utilisateur ? <a id="registration" href="index.php?page=registration">Inscrivez vous</a>.</p>
+<p>Pas de compte utilisateur ? <a id="registration" href="index.php?action=registration">Inscrivez vous</a>.</p>
 <?php
 $content = ob_get_clean();
 
