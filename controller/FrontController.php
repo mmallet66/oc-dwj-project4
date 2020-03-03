@@ -1,10 +1,5 @@
 <?php
 
-require_once "model/Chapter.php";
-require_once "model/ChapterManager.php";
-require_once "model/Comment.php";
-require_once "model/CommentManager.php";
-
 /**
  * Class FrontController
  * 
