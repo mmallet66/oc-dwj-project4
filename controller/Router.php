@@ -53,6 +53,13 @@ class Router
           break;
 
           case "new-user":
+            $userData = array(
+              "login" => $this->getParameter($_POST, "login"),
+              "mail" => $this->getParameter($_POST, "mail"),
+              "password" => $this->getParameter($_POST, "password")
+            );
+            $userController = new UserController();
+            $userController->addNewUser($userData);
           break;
 
           default:
