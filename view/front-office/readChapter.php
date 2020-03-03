@@ -7,7 +7,7 @@ ob_start();
 ?>
 <div>
   <article id="chapter-content">
-    <?= $this->chapter->getTitle(); ?>
+    <h2 style="text-align:center;"><?= $this->chapter->getTitle(); ?></h2>
     <?= $this->chapter->getContent(); ?>
   </article>
   <article id="comments-container">
@@ -22,8 +22,7 @@ ob_start();
       <hr>
       <p><i class="fa fa-angle-down"></i>Écrire un commentaire<i class="fa fa-angle-down"></i></p>
       <input type="checkbox" id="check">
-        <form action="index.php?action=makeAComment&amp;author=<?= $_SESSION["username"] ?>&amp;chapterId=<?= $this->chapter->getId(); ?>" method="POST" id="comment-form">
-          <!-- <input type="text" name="author" id="author" placeholder="Votre Nom" required> -->
+        <form action="index.php?action=new-comment&amp;author=<?= $_SESSION["username"] ?>&amp;chapterId=<?= $this->chapter->getId(); ?>" method="POST" id="comment-form">
           <textarea name="content" id="comment-editor" cols="30" rows="10" placeholder="Saisissez votre commentaire" required></textarea>
           <input type="submit" value="Envoyer">
         </form>
@@ -37,21 +36,21 @@ ob_start();
       <?php
       while($commentData = $comments->fetch())
       {
-        $this->comment->hydrate($commentData);
+        $comment = new Comment();
+        $comment->hydrate($commentData);
       ?>
       <li class="comment">
         <p class="comment-header">
           <span>
-            <strong><?= $this->comment->getAuthor() ?></strong>
-            , le <?= $this->comment->getDateComment() ?> :
+            <strong><?= $comment->getAuthor() ?></strong>
+            , le <?= $comment->getDateComment() ?> :
           </span>
-          <?php if(isset($_SESSION["username"]) && $this->comment->getReported() != 1)
-          {?>
-          <a href="index.php?page=read&amp;commentId=<?= $this->comment->getId() ?>&amp;report=1">Signaler</a>
           <?php
-          } ?>
+          if($comment->getReported() == 0){?>
+          <a href="index.php?action=report-comment&amp;commentId=<?= $comment->getId() ?>">Signaler</a>
+          <?php }; ?>
         </p>
-        <p class="comment-content"><?= $this->comment->getContent() ?></p>
+        <p class="comment-content"><?= $comment->getContent() ?></p>
       </li>
       <?php
       }

@@ -6,7 +6,7 @@ ob_start();
 ?>
 <h2>INSCRIPTION</h2><hr>
 
-<form action="index.php?page=registration&amp;action=new" method="post">
+<form action="index.php?action=new-user" method="post">
   <div>
     <label for="login">
       <i class="fas fa-user"></i>

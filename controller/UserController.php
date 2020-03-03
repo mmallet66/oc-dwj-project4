@@ -1,6 +1,6 @@
 <?php
 
-class ConnectionController
+class UserController
 {
 
   public $user;

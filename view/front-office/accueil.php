@@ -6,7 +6,7 @@ ob_start();
 ?>
 <h1 class="logo">Jean Forteroche</h1>
 
-<a href="index.php?page=read"><img src="public/img/couverture-livre.png" alt="Billet simple pour l'Alaska" /></a>
+<a href="index.php?action=read-synopsis"><img src="public/img/couverture-livre.png" alt="Billet simple pour l'Alaska" /></a>
 
 <div class="icons-container">
   <a class="icon-circle" href="https://www.facebook.fr/">

@@ -33,16 +33,16 @@ if (session_status() == PHP_SESSION_NONE) {
 
         <ul id="menu-list">
           <li><a href="index.php">Accueil</a></li>
-          <li><a href="index.php?page=read">Lecture</a></li>
-          <li><a href="index.php?page=about">À propos</a></li>
+          <li><a href="index.php?action=read-synopsis">Lecture</a></li>
+          <li><a href="index.php?action=about">À propos</a></li>
           <?php
           if(isset($_SESSION["username"])):
-            echo "<li><a href='index.php?page=login&action=disconnect'>Déconnexion</a></li>";
+            echo "<li><a href='index.php?action=disconnect'>Déconnexion</a></li>";
             if($_SESSION["role"] === "admin"):
-              echo "<li><a href='index.php?admin=accueil'>Administration</a></li>";
+              echo "<li><a href='index.php?action=admin-accueil'>Administration</a></li>";
             endif;
           else:
-            echo "<li><a href='index.php?page=login'>Connexion</a></li>";
+            echo "<li><a href='index.php?action=login'>Connexion</a></li>";
           endif;
           ?>
         </ul>

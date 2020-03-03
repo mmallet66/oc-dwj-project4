@@ -52,23 +52,19 @@ class ChapterManager extends Manager
   }
 
   /**
-   * @param int $published 0 or 1, allows to choose all published chapters or all chapters 
-   * 
    * @return object Return a PDOStatement Object, or false if an error occured
    */
-  public function getAllChapters(int $published=0)
+  public function getChaptersPublished()
   {
-    switch($published)
-    {
-      case 1:
-        $req = $this->_db->prepare("SELECT id, number_order AS numberOrder, title, content, published FROM chapters WHERE published=?");
-        $req->execute(array($published));
-        break;
-      case 0:
-        $req = $this->_db->query("SELECT id, number_order AS numberOrder, title, content, published FROM chapters");
-        break;
-    }
+    $req = $this->_db->query("SELECT id, number, title, content, published FROM chapters WHERE published=1");
 
+    return $req;
+  }
+
+  public function getChapters()
+  {
+    $req = $this->_db->query("SELECT id, number, title, content, published FROM chapters");
+    
     return $req;
   }
 
@@ -79,7 +75,7 @@ class ChapterManager extends Manager
    */
   public function getChapter(int $chapterId)
   {
-    $req = $this->_db->prepare("SELECT id, number_order AS numberOrder, title, content, published FROM chapters WHERE id=?");
+    $req = $this->_db->prepare("SELECT id, number, title, content, published FROM chapters WHERE id=?");
     $req->execute(array($chapterId));
 
     $chapter = $req->fetch();
@@ -96,8 +92,8 @@ class ChapterManager extends Manager
   {
     $req = $this->_db->prepare("DELETE FROM chapters WHERE id=?");
 
-    $affectedLines = $req->execute(array($chapterId));
+    $affectedLine = $req->execute(array($chapterId));
 
-    return $affectedLines;
+    return $affectedLine;
   }
 }
