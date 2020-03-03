@@ -1,8 +1,5 @@
 <?php
 
-require_once "model/User.php";
-require_once "model/UserManager.php";
-
 class ConnectionController
 {
 

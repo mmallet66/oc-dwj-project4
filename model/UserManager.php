@@ -1,8 +1,5 @@
 <?php
 
-require_once "Manager.php";
-require_once "User.php";
-
 /**
  * Class UserManager
  * 
