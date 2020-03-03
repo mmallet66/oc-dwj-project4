@@ -23,7 +23,7 @@ class UserController
       throw new Exception("Une erreur s'est produite, veuillez réessayer");
     }
 
-    header("Location: index.php?page=login");
+    header("Location: index.php?action=login");
   }
 
   public function checkUser(array $loginPass)
