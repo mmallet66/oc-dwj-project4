@@ -15,7 +15,7 @@ class Chapter
   /**
    * @var int Number order of the chapter
    */
-  private $_numberOrder;
+  private $_number;
 
   /**
    * @var string Chapter title, it can contain html tags
@@ -62,13 +62,13 @@ class Chapter
   /**
    * @param int $number Value assigned to $_number property
    */
-  public function setNumberOrder($number)
+  public function setNumber($number)
   {
     $number = (int) $number;
 
     if ($number > 0)
     {
-      $this->_numberOrder = $number;
+      $this->_number = $number;
     }
   }
 
@@ -110,7 +110,7 @@ class Chapter
 
 // GETTERS :
   public function getId() { return $this->_id; }
-  public function getNumberOrder() { return $this->_numberOrder; }
+  public function getNumber() { return $this->_number; }
   public function getTitle() { return $this->_title; }
   public function getContent() { return $this->_content; }
   public function getPublished() { return $this->_published; }
