@@ -1,8 +1,5 @@
 <?php
 
-require_once("Manager.php");
-require_once("Chapter.php");
-
 /**
  * Class ChapterManager
  * 

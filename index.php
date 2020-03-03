@@ -1,7 +1,7 @@
 <?php
-require_once "controller/front-office/FrontController.php";
-require_once "controller/back-office/BackController.php";
-require_once "controller/ConnectionController.php";
+require_once "controller/Autoloader.php";
+
+Autoloader::register();
 
 $frontController = new FrontController();
 $backController = new BackController();
