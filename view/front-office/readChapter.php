@@ -42,7 +42,7 @@ ob_start();
       <li class="comment">
         <p class="comment-header">
           <span>
-            <strong><?= $comment->getAuthor() ?></strong>
+            <strong><?= $comment->getAuthorLogin() ?></strong>
             , le <?= $comment->getDateComment() ?> :
           </span>
           <?php
