@@ -14,9 +14,14 @@ class Comment
   private $_id;
 
   /**
-   * @var string The identifier of the author of the comment
+   * @var int The identifier of the author of the comment
    */
   private $_authorId;
+
+  /**
+   * @var string The login of the author of the comment
+   */
+  private $_authorLogin;
 
   /**
    * @var string Text of the comment
@@ -75,6 +80,17 @@ class Comment
   }
 
   /**
+   * @param string $authorLogin Value assigned to $_authorLogin property
+   */
+  private function setAuthorLogin($authorLogin)
+  {
+    if(is_string($authorLogin))
+    {
+      $this->_authorLogin = $authorLogin;
+    }
+  }
+
+  /**
    * @param string $content Value assigned to $_content property
    */
   public function setContent($content)
@@ -117,6 +133,7 @@ class Comment
 // GETTERS :
   public function getId() { return $this->_id; }
   public function getAuthorId() { return $this->_authorId; }
+  public function getAuthorLogin() { return $this->_authorLogin; }
   public function getContent() { return $this->_content; }
   public function getReported() { return $this->_reported; }
   public function getChapterId() { return $this->_chapterId; }
