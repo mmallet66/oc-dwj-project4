@@ -10,7 +10,7 @@ ob_start();
   echo "<p style='color: #d43232; text-align:center;'>Le Nom d'utilisateur, ou le mot de passe, est erroné.</p>";
 }
 ?>
-<form action="index.php?page=login&amp;action=connect" method="post">
+<form action="index.php?action=connect" method="post">
   <div>
     <label for="username">
       <i class="fas fa-user"></i>
