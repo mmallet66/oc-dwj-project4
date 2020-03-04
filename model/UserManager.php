@@ -30,7 +30,7 @@ class UserManager extends Manager
 
     $affectedLines = $req->execute(array(
       $user->getLogin(),
-      sha1($user->getPassword()),
+      password_hash($user->getPassword(), PASSWORD_DEFAULT),
       $user->getMail()
     ));
 
