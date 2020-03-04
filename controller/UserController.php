@@ -36,6 +36,7 @@ class UserController
 
     if(!password_verify($passwd, $this->user->getPassword())):
       header("Location: index.php?action=login&errorLogin=1");
+      exit();
     endif;
   }
 
