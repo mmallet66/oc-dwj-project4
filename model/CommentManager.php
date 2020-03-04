@@ -26,10 +26,10 @@ class CommentManager extends Manager
    */
   public function addComment(object $comment)
   {
-    $req = $this->_db->prepare('INSERT INTO comments(author, content, chapter_id, date_comment) VALUES (?, ?, ?, NOW())');
+    $req = $this->_db->prepare('INSERT INTO comments(author_id, content, chapter_id, date_comment) VALUES (?, ?, ?, NOW())');
 
     $affectedLines = $req->execute(array(
-      $comment->getAuthor(),
+      $comment->getAuthorId(),
       $comment->getContent(),
       $comment->getChapterId()
     ));
@@ -44,19 +44,19 @@ class CommentManager extends Manager
    */
   public function getComment(int $commentId)
   {
-    $req = $this->_db->query("SELECT id, author, content, reported, chapter_id AS chapterId, DATE_FORMAT(date_comment, '%d/%m/%Y à %Hh%imin%ss') AS dateComment FROM comments WHERE id=$commentId");
+    $req = $this->_db->query("SELECT comments.id, author_id AS authorId, login AS authorLogin, content, reported, chapter_id AS chapterId, DATE_FORMAT(date_comment, '%d/%m/%Y %Hh%imin%ss') AS dateComment FROM comments INNER JOIN users ON comments.author_id = users.id WHERE comments.id = $commentId");
 
     return $req->fetch();
   }
   
   /**
-   * @param integer Chapter number order
+   * @param integer Chapter number
    * 
    * @return object Return a PDOStatement Object, or false
    */
   public function getCommentsOfChapter(int $chapterId)
   {
-    $req = $this->_db->prepare("SELECT id, author, content, reported, chapter_id AS chapterId, DATE_FORMAT(date_comment, '%d/%m/%Y à %Hh%imin%ss') AS dateComment FROM comments WHERE chapter_id=? ORDER BY date_comment DESC");
+    $req = $this->_db->prepare("SELECT comments.id, author_id AS authorId, login AS authorLogin, content, reported, chapter_id AS chapterId, DATE_FORMAT(date_comment, '%d/%m/%Y %Hh%imin%ss') AS dateComment FROM comments LEFT JOIN users ON comments.author_id = users.id WHERE chapter_id=? ORDER BY date_comment DESC");
     $req->execute(array($chapterId));
 
     return $req;
@@ -69,15 +69,15 @@ class CommentManager extends Manager
    */
   public function getComments($reported=false)
   {
-    if($reported === "0" || $reported === "1")
-    {
-        $req = $this->_db->prepare("SELECT id, author, content, reported, chapter_id AS chapterId, DATE_FORMAT(date_comment, '%d/%m/%Y à %Hh%imin%ss') AS dateComment FROM comments WHERE reported=? ORDER BY date_comment DESC");
-        $req->execute(array($reported));
-    }
-    else
-    {
-      $req = $this->_db->query("SELECT id, author, content, reported, chapter_id AS chapterId, DATE_FORMAT(date_comment, '%d/%m/%Y à %Hh%imin%ss') AS dateComment FROM comments ORDER BY date_comment DESC");
-    }
+    $select = "SELECT comments.id, author_id AS authorId, login AS authorLogin, content, reported, chapter_id AS chapterId, DATE_FORMAT(date_comment, '%d/%m/%Y %Hh%imin%ss') AS dateComment FROM comments LEFT JOIN users ON comments.author_id = users.id ";
+    $orderBy = " ORDER BY date_comment DESC";
+  
+    if($reported === "0" || $reported === "1"):
+      $req = $this->_db->prepare($select . "WHERE reported=?" . $orderBy);
+      $req->execute(array($reported));
+    else:
+      $req = $this->_db->query($select . $orderBy);
+    endif;
 
     return $req;
   }
@@ -97,29 +97,15 @@ class CommentManager extends Manager
   }
 
   /**
-   * @param integer Chapter identifier
-   * 
-   * @return int Number of rows affected in the database or false if an error occured
-   */
-  public function removeCommentsOfChapter(int $chapterId)
-  {
-    $req = $this->_db->prepare("DELETE FROM comments WHERE chapter_id=?");
-
-    $affectedLines = $req->execute(array($chapterId));
-
-    return $affectedLines;
-  }
-
-  /**
    * @param object Comment object
    * 
    * @return int Number of rows affected in the database or false if an error occured
    */
   public function updateComment(object $comment)
   {
-    $req = $this->_db->prepare("UPDATE comments SET author=?, content=?, reported=? WHERE id=?");
+    $req = $this->_db->prepare("UPDATE comments SET author_id=?, content=?, reported=? WHERE id=?");
     $affectedLines = $req->execute(array(
-      $comment->getAuthor(),
+      $comment->getAuthorId(),
       $comment->getContent(),
       $comment->getReported(),
       $comment->getId()
