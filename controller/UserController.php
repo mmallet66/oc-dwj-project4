@@ -38,4 +38,15 @@ class UserController
       header("Location: index.php?action=login&errorLogin=1");
     endif;
   }
+
+  public function connect(array $loginPass)
+  {
+    $this->checkPassword($loginPass);
+    
+    session_start();
+    $_SESSION["username"] = $this->user->getLogin();
+    $_SESSION["role"] = $this->user->getRole();
+
+    header("Location: index.php");
+  }
 }
