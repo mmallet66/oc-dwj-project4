@@ -26,21 +26,27 @@ class UserController
     header("Location: index.php?action=login");
   }
 
-  public function checkUser(array $loginPass)
+  public function checkPassword(array $loginPass)
   {
     $login = $loginPass["username"];
-    $passwd = sha1($loginPass["password"]);
+    $passwd = $loginPass["password"];
 
     $data = $this->userManager->getUser($login);
     $this->user->hydrate($data);
 
-    if($this->user->getPassword() == $passwd)
-    {
-      return $this->user->getRole();
-    }
-    else
-    {
-      return false;
-    }
+    if(!password_verify($passwd, $this->user->getPassword())):
+      header("Location: index.php?action=login&errorLogin=1");
+    endif;
+  }
+
+  public function connect(array $loginPass)
+  {
+    $this->checkPassword($loginPass);
+    
+    session_start();
+    $_SESSION["username"] = $this->user->getLogin();
+    $_SESSION["role"] = $this->user->getRole();
+
+    header("Location: index.php");
   }
 }
