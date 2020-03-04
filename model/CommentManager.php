@@ -97,20 +97,6 @@ class CommentManager extends Manager
   }
 
   /**
-   * @param integer Chapter identifier
-   * 
-   * @return int Number of rows affected in the database or false if an error occured
-   */
-  public function removeCommentsOfChapter(int $chapterId)
-  {
-    $req = $this->_db->prepare("DELETE FROM comments WHERE chapter_id=?");
-
-    $affectedLines = $req->execute(array($chapterId));
-
-    return $affectedLines;
-  }
-
-  /**
    * @param object Comment object
    * 
    * @return int Number of rows affected in the database or false if an error occured
