@@ -14,9 +14,9 @@ class Comment
   private $_id;
 
   /**
-   * @var string The name of the author of the comment
+   * @var string The identifier of the author of the comment
    */
-  private $_author;
+  private $_authorId;
 
   /**
    * @var string Text of the comment
@@ -67,14 +67,11 @@ class Comment
   }
 
   /**
-   * @param string $author Value assigned to $_author property
+   * @param int $authorId Value assigned to $_authorId property
    */
-  public function setAuthor($author)
+  private function setAuthorId($authorId)
   {
-    if (is_string($author))
-    {
-      $this->_author = $author;
-    }
+      $this->_authorId = (int) $authorId;
   }
 
   /**
@@ -119,7 +116,7 @@ class Comment
 
 // GETTERS :
   public function getId() { return $this->_id; }
-  public function getAuthor() { return $this->_author; }
+  public function getAuthorId() { return $this->_authorId; }
   public function getContent() { return $this->_content; }
   public function getReported() { return $this->_reported; }
   public function getChapterId() { return $this->_chapterId; }
