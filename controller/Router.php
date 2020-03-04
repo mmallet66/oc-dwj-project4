@@ -38,10 +38,17 @@ class Router
           break;
           
           case "login":
+            (isset($_GET["errorLogin"]) && $_GET["errorLogin"] == 1) ? $errorLogin=1 : $errorLogin=null;
             require "view/front-office/login.php";
           break;
 
           case "connect":
+            $dataEntered = array(
+              "username" => $this->getParameter($_POST, "username"),
+              "password" => $this->getParameter($_POST, "password")
+            );
+            $userController = new UserController();
+            $userController->connect($dataEntered);
           break;
 
           case "disconnect":
