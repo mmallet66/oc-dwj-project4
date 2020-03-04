@@ -42,7 +42,7 @@ ob_start();
       <li class="comment">
         <p class="comment-header">
           <span>
-            <strong><?= ($comment->getAuthorLogin()) ? $comment->getAuthorLogin() : "Anonyme"; ?></strong>
+            <strong><?= ($comment->getAuthorLogin()) ? htmlspecialchars($comment->getAuthorLogin()) : "Anonyme"; ?></strong>
             , le <?= $comment->getDateComment() ?> :
           </span>
           <?php
@@ -50,7 +50,7 @@ ob_start();
           <a href="index.php?action=report-comment&amp;commentId=<?= $comment->getId() ?>">Signaler</a>
           <?php }; ?>
         </p>
-        <p class="comment-content"><?= $comment->getContent() ?></p>
+        <p class="comment-content"><?= htmlspecialchars($comment->getContent()) ?></p>
       </li>
       <?php
       }
