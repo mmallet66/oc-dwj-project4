@@ -52,7 +52,9 @@ class Router
           break;
 
           case "disconnect":
+            session_start();
             session_unset();
+            require "view/front-office/accueil.php";
           break;
 
           case "registration":
