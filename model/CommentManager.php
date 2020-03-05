@@ -97,18 +97,17 @@ class CommentManager extends Manager
   }
 
   /**
-   * @param object Comment object
+   * @param integer $commentId Comment's identifier
+   * @param integer $reportingValue 0 or 1 for reported or not
    * 
    * @return int Number of rows affected in the database or false if an error occured
    */
-  public function updateComment(object $comment)
+  public function updateOfCommentReportingField(int $commentId, int $reportingValue)
   {
-    $req = $this->_db->prepare("UPDATE comments SET author_id=?, content=?, reported=? WHERE id=?");
+    $req = $this->_db->prepare("UPDATE comments SET reported=? WHERE id=?");
     $affectedLines = $req->execute(array(
-      $comment->getAuthorId(),
-      $comment->getContent(),
-      $comment->getReported(),
-      $comment->getId()
+      $reportingValue,
+      $commentId
     ));
 
     return $affectedLines;
