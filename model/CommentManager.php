@@ -44,7 +44,7 @@ class CommentManager extends Manager
    */
   public function getComment(int $commentId)
   {
-    $req = $this->_db->query("SELECT comments.id, author_id AS authorId, login AS authorLogin, content, reported, chapter_id AS chapterId, DATE_FORMAT(date_comment, '%d/%m/%Y %Hh%imin%ss') AS dateComment FROM comments INNER JOIN users ON comments.author_id = users.id WHERE comments.id = $commentId");
+    $req = $this->_db->query("SELECT comments.id, author_id AS authorId, login AS authorLogin, content, reported, chapter_id AS chapterId, DATE_FORMAT(date_comment, '%d/%m/%Y %Hh%imin%ss') AS dateComment FROM comments LEFT JOIN users ON comments.author_id = users.id WHERE comments.id = $commentId");
 
     return $req->fetch();
   }
@@ -97,18 +97,17 @@ class CommentManager extends Manager
   }
 
   /**
-   * @param object Comment object
+   * @param integer $commentId Comment's identifier
+   * @param integer $reportingValue 0 or 1 for reported or not
    * 
    * @return int Number of rows affected in the database or false if an error occured
    */
-  public function updateComment(object $comment)
+  public function updateOfCommentReportingField(int $commentId, int $reportingValue)
   {
-    $req = $this->_db->prepare("UPDATE comments SET author_id=?, content=?, reported=? WHERE id=?");
+    $req = $this->_db->prepare("UPDATE comments SET reported=? WHERE id=?");
     $affectedLines = $req->execute(array(
-      $comment->getAuthorId(),
-      $comment->getContent(),
-      $comment->getReported(),
-      $comment->getId()
+      $reportingValue,
+      $commentId
     ));
 
     return $affectedLines;
