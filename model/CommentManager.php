@@ -44,7 +44,7 @@ class CommentManager extends Manager
    */
   public function getComment(int $commentId)
   {
-    $req = $this->_db->query("SELECT comments.id, author_id AS authorId, login AS authorLogin, content, reported, chapter_id AS chapterId, DATE_FORMAT(date_comment, '%d/%m/%Y %Hh%imin%ss') AS dateComment FROM comments INNER JOIN users ON comments.author_id = users.id WHERE comments.id = $commentId");
+    $req = $this->_db->query("SELECT comments.id, author_id AS authorId, login AS authorLogin, content, reported, chapter_id AS chapterId, DATE_FORMAT(date_comment, '%d/%m/%Y %Hh%imin%ss') AS dateComment FROM comments LEFT JOIN users ON comments.author_id = users.id WHERE comments.id = $commentId");
 
     return $req->fetch();
   }
