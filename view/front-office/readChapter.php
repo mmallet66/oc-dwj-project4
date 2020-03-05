@@ -16,13 +16,13 @@ ob_start();
     </div>
 
     <?php
-    if(isset($_SESSION["username"])):
+    if(isset($_SESSION["userId"])):
     ?>
     <div id="comment-form-container">
       <hr>
       <p><i class="fa fa-angle-down"></i>Écrire un commentaire<i class="fa fa-angle-down"></i></p>
       <input type="checkbox" id="check">
-        <form action="index.php?action=new-comment&amp;author=<?= $_SESSION["username"] ?>&amp;chapterId=<?= $this->chapter->getId(); ?>" method="POST" id="comment-form">
+        <form action="index.php?action=new-comment&amp;authorId=<?= $_SESSION["userId"] ?>&amp;chapterId=<?= $this->chapter->getId(); ?>" method="POST" id="comment-form">
           <textarea name="content" id="comment-editor" cols="30" rows="10" placeholder="Saisissez votre commentaire" required></textarea>
           <input type="submit" value="Envoyer">
         </form>
