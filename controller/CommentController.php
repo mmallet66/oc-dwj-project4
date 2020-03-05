@@ -18,8 +18,8 @@ class CommentController
     {
       throw new Exception("Une erreur est survenue");
     }
-    $this->comment->setReported(1);
-    $this->commentManager->updateComment($this->comment);
+
+    $this->commentManager->updateOfCommentReportingField($this->comment->getId(), 1);
 
     header("Location: index.php?action=read-chapter&chapterId=" . $this->comment->getChapterId());
   }
