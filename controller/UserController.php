@@ -45,7 +45,7 @@ class UserController
     $this->checkPassword($loginPass);
     
     session_start();
-    $_SESSION["username"] = $this->user->getLogin();
+    $_SESSION["userId"] = $this->user->getId();
     $_SESSION["role"] = $this->user->getRole();
 
     header("Location: index.php");

@@ -71,6 +71,16 @@ class Router
             $userController->addNewUser($userData);
           break;
 
+          case "new-comment":
+            $commentData = array(
+              "authorId" => $this->getParameter($_GET, "authorId"),
+              "content" => $this->getParameter($_POST, "content"),
+              "chapterId" => $this->getParameter($_GET, "chapterId")
+            );
+            $commentController = new CommentController();
+            $commentController->postNewComment($commentData);
+          break;
+
           default:
             throw new Exception("Oups ! Cette page n'existe pas.");
           break;
