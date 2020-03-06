@@ -21,8 +21,8 @@
         <img class="menu-separator menu-separator-1" src="public/img/trenner3.svg" alt="separator">
 
         <ul id="menu-list">
-          <li><a href="index.php?admin=administration">Administration</a></li>
-          <li><a href="index.php?admin=moderation">Modération</a></li>
+          <li><a href="index.php?status=admin&amp;action=administration">Administration</a></li>
+          <li><a href="index.php?status=admin&amp;action=moderation">Modération</a></li>
         </ul>
         <img class="menu-separator menu-separator-2" src="public/img/trenner3.svg" alt="separator">
       </div>
@@ -31,8 +31,8 @@
   </nav>
   
   <header>
-    <h1 class="logo">Jean Forteroche</h1>
-    <a href="index.php?page=login&action=disconnect">Déconnexion</a>
+    <h1 class="logo"><a href="index.php">Jean Forteroche</a></h1>
+    <a href="index.php?action=disconnect">Déconnexion</a>
   </header>
 
   <section id="content-container" class="<?= $pageName ?>">
