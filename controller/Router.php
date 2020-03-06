@@ -113,10 +113,18 @@ class Router
     if (isset($_GET["action"]))
     {
       switch($_GET["action"]):
+
         case "administration":
           $chapterController = new ChapterController();
           $chapterController->chapterAdministration();
         break;
+
+        case "delete-chapter":
+          $chapterId = $this->getParameter($_GET, "chapterId");
+          $chapterController = new ChapterController();
+          $chapterController->deleteChapter($chapterId);
+        break;
+
         case "moderation":
         break;
         case "edition":

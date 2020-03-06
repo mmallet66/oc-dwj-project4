@@ -45,4 +45,15 @@ class ChapterController
 
     require "view/back-office/administration.php";
   }
+
+  public function deleteChapter($chapterId)
+  {
+    $affectedLine = $this->chapterManager->removeChapter($chapterId);
+
+    if(!$affectedLine):
+      throw new Exception("Une erreur est survenue, le chapitre n'a pas été supprimé");
+    endif;
+
+    header("Location: index.php?status=admin&action=administration");
+  }
 }
