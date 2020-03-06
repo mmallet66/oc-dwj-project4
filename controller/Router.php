@@ -166,7 +166,10 @@ class Router
         break;
 
         case "moderation":
+          $commentController = new CommentController();
+          $commentController->commentModeration();
         break;
+
         default:
           throw new Exception("Oups ! Cette page n'existe pas.");
         break;
