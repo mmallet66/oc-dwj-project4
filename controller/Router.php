@@ -131,9 +131,23 @@ class Router
           $chapterController->publishChapter($chapterId);
         break;
 
-        case "moderation":
+        case "write":
+          $chapterController = new ChapterController();
+          $chapterController->getEditionView();
         break;
-        case "edition":
+
+        case "create-chapter":
+          $chapterData = array(
+            "number" => $this->getParameter($_POST, "number"),
+            "title" => $_POST["title"],
+            "content" => $_POST["content"]
+          );
+
+          $chapterController = new ChapterController();
+          $chapterController->createChapter($chapterData);
+        break;
+
+        case "moderation":
         break;
         default:
           throw new Exception("Oups ! Cette page n'existe pas.");
