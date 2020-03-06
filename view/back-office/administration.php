@@ -28,9 +28,9 @@ ob_start();
         <td><?= substr(strip_tags($this->chapter->getContent()), 0, 200) . "..." ?></td>
         <td><?= ($this->chapter->getPublished()) ? "Publié" : "Brouillon"; ?></td>
         <td>
-          <a href="index.php?status=admin&amp;action=edit&amp;chapterId=<?= $this->chapter->getId() ?>" title="Éditer"><i class="edit fa fa-edit"></i></a>
-          <a href="index.php?status=admin&amp;action=publish&amp;chapterId=<?= $this->chapter->getId() ?>" title="Publier"><i class="view fa fa-eye"></i></a>
-          <a href="index.php?status=admin&amp;action=delete&amp;chapterId=<?= $this->chapter->getId() ?>" title="Supprimer"><i class="trash fa fa-trash"></i></a>
+          <a href="index.php?status=admin&amp;action=edit-chapter&amp;chapterId=<?= $this->chapter->getId() ?>" title="Éditer"><i class="edit fa fa-edit"></i></a>
+          <a href="index.php?status=admin&amp;action=publish-chapter&amp;chapterId=<?= $this->chapter->getId() ?>" title="Publier"><i class="view fa fa-eye"></i></a>
+          <a href="index.php?status=admin&amp;action=delete-chapter&amp;chapterId=<?= $this->chapter->getId() ?>" title="Supprimer"><i class="trash fa fa-trash"></i></a>
         </td>
       </tr>
       <?php
