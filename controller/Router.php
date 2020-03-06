@@ -125,6 +125,12 @@ class Router
           $chapterController->deleteChapter($chapterId);
         break;
 
+        case "publish-chapter":
+          $chapterId = $this->getParameter($_GET, "chapterId");
+          $chapterController = new ChapterController();
+          $chapterController->publishChapter($chapterId);
+        break;
+
         case "moderation":
         break;
         case "edition":
