@@ -114,6 +114,8 @@ class Router
     {
       switch($_GET["action"]):
         case "administration":
+          $chapterController = new ChapterController();
+          $chapterController->chapterAdministration();
         break;
         case "moderation":
         break;
