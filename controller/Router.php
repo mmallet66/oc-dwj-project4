@@ -147,6 +147,24 @@ class Router
           $chapterController->createChapter($chapterData);
         break;
 
+        case "edit-chapter":
+          $chapterId = $this->getParameter($_GET, "chapterId");
+          $chapterController = new ChapterController();
+          $chapterController->getEditionView($chapterId);
+        break;
+        
+        case "update-chapter":
+          $chapterId = $this->getParameter($_GET, "chapterId");
+          $chapterData = array(
+            "number" => $this->getParameter($_POST, "number"),
+            "title" => $_POST["title"],
+            "content" => $_POST["content"]
+          );
+
+          $chapterController = new ChapterController();
+          $chapterController->reviseChapter($chapterId, $chapterData);
+        break;
+
         case "moderation":
         break;
         default:
