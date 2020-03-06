@@ -34,4 +34,11 @@ class CommentController
 
     header("Location: index.php?action=read-chapter&chapterId=" . $this->comment->getChapterId());
   }
+
+  public function commentModeration()
+  {
+    $commentsReported = $this->commentManager->getComments(1);
+
+    require "view/back-office/moderation.php";
+  }
 }
