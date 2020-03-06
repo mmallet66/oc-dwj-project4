@@ -84,4 +84,14 @@ class ChapterController
 
     require "view/back-office/edition.php";
   }
+
+  public function createChapter(array $chapterData)
+  {
+    $this->chapter->hydrate($chapterData);
+    $affectedLine = $this->chapterManager->addChapter($this->chapter);
+    if(!$affectedLine):
+      throw new Exception("Une erreur est survenue, retournez sur la page précédente pour ne pas perdre votre saisie.");
+    endif;
+    header("Location: index.php?status=admin&action=administration");
+  }
 }
