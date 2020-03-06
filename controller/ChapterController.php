@@ -38,4 +38,11 @@ class ChapterController
       throw new Exception("Une erreur est survenue");
     }
   }
+
+  public function chapterAdministration()
+  {
+    $chapters = $this->chapterManager->getChapters();
+
+    require "view/back-office/administration.php";
+  }
 }
