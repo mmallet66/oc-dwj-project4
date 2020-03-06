@@ -26,6 +26,12 @@ class UserController
     header("Location: index.php?action=login");
   }
 
+  public function isAdmin()
+  {
+    session_start();
+    return (isset($_SESSION["role"]) && $_SESSION["role"] == "admin");
+  }
+
   public function checkPassword(array $loginPass)
   {
     $login = $loginPass["username"];
