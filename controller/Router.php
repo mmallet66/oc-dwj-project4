@@ -5,6 +5,16 @@ class Router
   public function traitment(){
     try
     {
+      if(isset($_GET["status"]) && $_GET["status"] == "admin")
+      {
+        $userController = new UserController();
+        if($userController->isAdmin()):
+          $this->getAdminView();
+          exit();
+        else:
+          throw new Exception("Accès refusé");
+        endif;
+      }
       if (isset($_GET["action"]))
       {
         switch($_GET["action"])
@@ -95,6 +105,26 @@ class Router
     {
       $errorMessage = $e->getMessage();
       require "view/front-office/error.php";
+    }
+  }
+
+  private function getAdminView()
+  {
+    if (isset($_GET["action"]))
+    {
+      switch($_GET["action"]):
+        case "administration":
+        break;
+        case "moderation":
+        break;
+        case "edition":
+        break;
+        default:
+          throw new Exception("Oups ! Cette page n'existe pas.");
+        break;
+      endswitch;
+    }else{
+      require "view/back-office/accueil.php";
     }
   }
 
