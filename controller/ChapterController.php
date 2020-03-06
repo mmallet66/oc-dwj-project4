@@ -56,4 +56,19 @@ class ChapterController
 
     header("Location: index.php?status=admin&action=administration");
   }
+
+  public function publishChapter($chapterId)
+  {
+    $this->chapter->hydrate($this->chapterManager->getChapter($chapterId));
+
+    if($this->chapter->getPublished() != 1):
+      $this->chapter->setPublished(1);
+    else:
+      $this->chapter->setPublished(0);
+    endif;
+
+    $this->chapterManager->updateChapter($this->chapter);
+
+    header("Location: index.php?status=admin&action=administration");
+  }
 }
