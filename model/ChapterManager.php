@@ -26,10 +26,10 @@ class ChapterManager extends Manager
    */
   public function addChapter(object $chapter)
   {
-    $req = $this->_db->prepare("INSERT INTO chapters (number_order, title, content) VALUES (?, ?, ?)");
+    $req = $this->_db->prepare("INSERT INTO chapters (number, title, content) VALUES (?, ?, ?)");
 
     $affectedLines = $req->execute(array(
-      $chapter->getNumberOrder(),
+      $chapter->getNumber(),
       $chapter->getTitle(),
       $chapter->getContent()
     ));
