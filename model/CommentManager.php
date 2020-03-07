@@ -67,7 +67,7 @@ class CommentManager extends Manager
    */
   public function getComments()
   {
-    $select = "SELECT comments.id, author_id AS authorId, login AS authorLogin, comments.content, reported, chapter_id AS chapterId, chapters.title AS chapterTitle, DATE_FORMAT(date_comment, '%d/%m/%Y %Hh%imin%ss') AS dateComment FROM comments LEFT JOIN users ON comments.author_id = users.id INNER JOIN chapters ON comments.chapter_id = chapters.id ";
+    $select = "SELECT comments.id, author_id AS authorId, login AS authorLogin, comments.content, reported, chapter_id AS chapterId, chapters.title AS chapterTitle, DATE_FORMAT(date_comment, '%d/%m/%Y %Hh%imin%ss') AS dateComment FROM comments LEFT JOIN users ON comments.author_id = users.id LEFT JOIN chapters ON comments.chapter_id = chapters.id ";
     $orderBy = " ORDER BY reported DESC, chapterId ASC, dateComment DESC";
   
     $req = $this->_db->query($select . $orderBy);
