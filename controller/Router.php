@@ -170,6 +170,12 @@ class Router
           $commentController->commentModeration();
         break;
 
+        case "unreport-comment":
+          $commentId = $this->getParameter($_GET, "commentId");
+          $commentController = new CommentController();
+          $commentController->unreportComment($commentId);
+        break;
+
         default:
           throw new Exception("Oups ! Cette page n'existe pas.");
         break;
