@@ -5,6 +5,16 @@ class Router
   public function traitment(){
     try
     {
+      if(isset($_GET["status"]) && $_GET["status"] == "admin")
+      {
+        $userController = new UserController();
+        if($userController->isAdmin()):
+          $this->getAdminView();
+          exit();
+        else:
+          throw new Exception("Accès refusé");
+        endif;
+      }
       if (isset($_GET["action"]))
       {
         switch($_GET["action"])
@@ -95,6 +105,89 @@ class Router
     {
       $errorMessage = $e->getMessage();
       require "view/front-office/error.php";
+    }
+  }
+
+  private function getAdminView()
+  {
+    if (isset($_GET["action"]))
+    {
+      switch($_GET["action"]):
+
+        case "administration":
+          $chapterController = new ChapterController();
+          $chapterController->chapterAdministration();
+        break;
+
+        case "delete-chapter":
+          $chapterId = $this->getParameter($_GET, "chapterId");
+          $chapterController = new ChapterController();
+          $chapterController->deleteChapter($chapterId);
+        break;
+
+        case "publish-chapter":
+          $chapterId = $this->getParameter($_GET, "chapterId");
+          $chapterController = new ChapterController();
+          $chapterController->publishChapter($chapterId);
+        break;
+
+        case "write":
+          $chapterController = new ChapterController();
+          $chapterController->getEditionView();
+        break;
+
+        case "create-chapter":
+          $chapterData = array(
+            "number" => $this->getParameter($_POST, "number"),
+            "title" => $_POST["title"],
+            "content" => $_POST["content"]
+          );
+
+          $chapterController = new ChapterController();
+          $chapterController->createChapter($chapterData);
+        break;
+
+        case "edit-chapter":
+          $chapterId = $this->getParameter($_GET, "chapterId");
+          $chapterController = new ChapterController();
+          $chapterController->getEditionView($chapterId);
+        break;
+        
+        case "update-chapter":
+          $chapterId = $this->getParameter($_GET, "chapterId");
+          $chapterData = array(
+            "number" => $this->getParameter($_POST, "number"),
+            "title" => $_POST["title"],
+            "content" => $_POST["content"]
+          );
+
+          $chapterController = new ChapterController();
+          $chapterController->reviseChapter($chapterId, $chapterData);
+        break;
+
+        case "moderation":
+          $commentController = new CommentController();
+          $commentController->commentModeration();
+        break;
+
+        case "unreport-comment":
+          $commentId = $this->getParameter($_GET, "commentId");
+          $commentController = new CommentController();
+          $commentController->unreportComment($commentId);
+        break;
+
+        case "delete-comment":
+          $commentId = $this->getParameter($_GET, "commentId");
+          $commentController = new CommentController();
+          $commentController->deleteComment($commentId);
+        break;
+
+        default:
+          throw new Exception("Oups ! Cette page n'existe pas.");
+        break;
+      endswitch;
+    }else{
+      require "view/back-office/accueil.php";
     }
   }
 

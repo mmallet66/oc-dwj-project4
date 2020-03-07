@@ -26,10 +26,10 @@ class ChapterManager extends Manager
    */
   public function addChapter(object $chapter)
   {
-    $req = $this->_db->prepare("INSERT INTO chapters (number_order, title, content) VALUES (?, ?, ?)");
+    $req = $this->_db->prepare("INSERT INTO chapters (number, title, content) VALUES (?, ?, ?)");
 
     $affectedLines = $req->execute(array(
-      $chapter->getNumberOrder(),
+      $chapter->getNumber(),
       $chapter->getTitle(),
       $chapter->getContent()
     ));
@@ -42,11 +42,17 @@ class ChapterManager extends Manager
    * 
    * @return $affectedLines Number of rows affected in the database or false if an error occured
    */
-  public function updateChapter($data)
+  public function updateChapter(object $chapter)
   {
-    $req = $this->_db->prepare("UPDATE chapters SET number_order=?, title=?, content=?, published=? WHERE id=?");
+    $req = $this->_db->prepare("UPDATE chapters SET number=?, title=?, content=?, published=? WHERE id=?");
 
-    $affectedLines = $req->execute($data);
+    $affectedLines = $req->execute(array(
+      $chapter->getNumber(),
+      $chapter->getTitle(),
+      $chapter->getContent(),
+      $chapter->getPublished(),
+      $chapter->getId(),
+    ));
 
     return $affectedLines;
   }
