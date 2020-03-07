@@ -89,10 +89,7 @@ class Comment
    */
   private function setAuthorLogin($authorLogin)
   {
-    if(is_string($authorLogin))
-    {
-      $this->_authorLogin = $authorLogin;
-    }
+    $this->_authorLogin = $authorLogin;
   }
 
   /**
