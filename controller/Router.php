@@ -166,7 +166,22 @@ class Router
         break;
 
         case "moderation":
+          $commentController = new CommentController();
+          $commentController->commentModeration();
         break;
+
+        case "unreport-comment":
+          $commentId = $this->getParameter($_GET, "commentId");
+          $commentController = new CommentController();
+          $commentController->unreportComment($commentId);
+        break;
+
+        case "delete-comment":
+          $commentId = $this->getParameter($_GET, "commentId");
+          $commentController = new CommentController();
+          $commentController->deleteComment($commentId);
+        break;
+
         default:
           throw new Exception("Oups ! Cette page n'existe pas.");
         break;

@@ -34,4 +34,35 @@ class CommentController
 
     header("Location: index.php?action=read-chapter&chapterId=" . $this->comment->getChapterId());
   }
+
+  public function commentModeration()
+  {
+    $commentsReported = $this->commentManager->getComments(1);
+
+    require "view/back-office/moderation.php";
+  }
+
+  public function unreportComment(int $commentId)
+  {
+    $this->comment->hydrate($this->commentManager->getComment($commentId));
+    if(!$this->comment->getId())
+    {
+      throw new Exception("Une erreur est survenue");
+    }
+
+    $this->commentManager->updateOfCommentReportingField($this->comment->getId(), 0);
+
+    header("Location: index.php?status=admin&action=moderation");
+  }
+
+  public function deleteComment($commentId)
+  {
+    $affectedLine = $this->commentManager->removeComment($commentId);
+
+    if(!$affectedLine):
+      throw new Exception("Une erreur est survenue, le commentaire n'a pas été supprimé");
+    endif;
+
+    header("Location: index.php?status=admin&action=moderation");
+  }
 }
