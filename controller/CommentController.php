@@ -41,4 +41,17 @@ class CommentController
 
     require "view/back-office/moderation.php";
   }
+
+  public function unreportComment(int $commentId)
+  {
+    $this->comment->hydrate($this->commentManager->getComment($commentId));
+    if(!$this->comment->getId())
+    {
+      throw new Exception("Une erreur est survenue");
+    }
+
+    $this->commentManager->updateOfCommentReportingField($this->comment->getId(), 0);
+
+    header("Location: index.php?status=admin&action=moderation");
+  }
 }
