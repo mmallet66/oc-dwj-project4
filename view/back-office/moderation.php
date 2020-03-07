@@ -25,10 +25,20 @@ ob_start();
         $this->comment->hydrate($commentData);
       ?>
       <tr>
-        <td><?= $this->comment->getAuthorLogin() ?></td>
+        <td><?= ($this->comment->getAuthorLogin()) ? htmlspecialchars($this->comment->getAuthorLogin()) : "Anonyme"; ?></td>
         <td><?= $this->comment->getChapterTitle() ?></td>
-        <td><?= $this->comment->getContent() ?></td>
-        <td><?= ($this->comment->getReported()) ? "oui <a href='' title='Désignaler'><i class='fas fa-check'></i></a>" : "non" ?></td>
+        <td><?= htmlspecialchars($this->comment->getContent()) ?></td>
+        <td>
+        <?php
+        if($this->comment->getReported()):
+          echo "oui <a href='index.php?status=admin&action=unreport-comment&commentId="
+            . $this->comment->getId()
+            . "' title='Désignaler'><i class='fas fa-check'></i></a>";
+        else:
+          echo "non";
+        endif;
+        ?>
+        </td>
         <td>
           <a href="" title="Supprimer"><i class="trash fa fa-trash"></i></a>
         </td>
