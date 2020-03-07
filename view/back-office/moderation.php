@@ -40,7 +40,7 @@ ob_start();
         ?>
         </td>
         <td>
-          <a href="" title="Supprimer"><i class="trash fa fa-trash"></i></a>
+          <a href="index.php?status=admin&amp;action=delete-comment&amp;commentId=<?= $this->comment->getId()?>" title="Supprimer"><i class="trash fa fa-trash"></i></a>
         </td>
       </tr>
       <?php
