@@ -54,4 +54,15 @@ class CommentController
 
     header("Location: index.php?status=admin&action=moderation");
   }
+
+  public function deleteComment($commentId)
+  {
+    $affectedLine = $this->commentManager->removeComment($commentId);
+
+    if(!$affectedLine):
+      throw new Exception("Une erreur est survenue, le commentaire n'a pas été supprimé");
+    endif;
+
+    header("Location: index.php?status=admin&action=moderation");
+  }
 }
