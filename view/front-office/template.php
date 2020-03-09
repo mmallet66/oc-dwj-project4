@@ -12,6 +12,7 @@ if (session_status() == PHP_SESSION_NONE) {
   <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="public/css/style-global.css">
   <link rel="stylesheet" href="public/css/style-front-office.css">
+  <link rel="stylesheet" href="public/css/responsive.css">
   <title><?= $title;?> - Jean Forteroche</title>
 </head>
 
