@@ -1,0 +1,74 @@
+/* MEDIA QUERIES */
+
+/* SCREEN MAX-WIDTH 1023PX */
+@media screen and (max-width: 1023px) {
+  #nav {
+    grid-column: 1/14;
+    z-index: 1;
+  }
+
+  #nav-button, #nav-check {
+    font-size: 8vw;
+    height: 10vw;
+    line-height: 11vw;
+    width: 10vw;
+  }
+
+  #nav.on ~ section#content-container {
+    grid-column: 1/21;
+  }
+
+  section#content-container {
+    grid-column: 1/21 !important;
+    grid-row: 2/11 !important;
+  }
+
+  section#content-container.accueil .logo {
+    font-size: 4rem;
+  }
+
+  section#content-container.accueil .icons-container {
+    width: 100%;
+  }
+
+  section#content-container.read-synopsis > div {
+    display: block;
+    text-align: center;
+  }
+
+  section#content-container.read-synopsis > div > article {
+    width: 100%;
+  }
+
+  section#content-container.read-synopsis form select, section#content-container.read-synopsis form input {
+    width: 50vw;
+  }
+
+  section#content-container.about .description {
+    display: block;
+    text-align: center;
+  }
+
+  section#content-container.about .description .description-text {
+    text-align: justify;
+    width: 100%;
+  }
+
+  section#content-container.login input, section#content-container.registration input {
+    margin: 2.5vh 0;
+    width: 38vw;
+  }
+
+  section#content-container.login input#submit, section#content-container.registration input#submit {
+    width: 50vw;
+  }
+
+  #comment-form-container > p {
+    line-height: 4vh;
+    width: 100%;
+  }
+
+  #check {
+    height: 7vw;
+  }
+}
