@@ -1,6 +1,6 @@
 <?php
 session_start();
-$title = "Chapitre " . $this->chapter->getId();
+$title = "Chapitre " . $this->chapter->getNumber();
 $pageName = "read-chapter";
 
 ob_start();
