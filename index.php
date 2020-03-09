@@ -1,5 +1,5 @@
 <?php
-require_once "controller/Autoloader.php";
+require_once "Autoloader.php";
 
 Autoloader::register();
 
