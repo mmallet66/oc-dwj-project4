@@ -37,7 +37,7 @@ class CommentController
 
   public function commentModeration()
   {
-    $commentsReported = $this->commentManager->getComments(1);
+    $commentsReported = $this->commentManager->getComments();
 
     require "view/back-office/moderation.php";
   }
